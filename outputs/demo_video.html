@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Loom — 2 minute demo</title>
+<style>
+:root{
+  --bg:#0b0f17; --ink:#f2f5fa; --dim:#8b97ab; --line:#1e2836;
+  --accent:#5b8dff; --good:#3ddc97; --warn:#ffb454; --dark:#b98cff;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  overflow:hidden}
+#stage{position:relative;width:100vw;height:100vh;display:flex;
+  align-items:center;justify-content:center}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:0 8vw;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .55s ease,transform .55s ease;pointer-events:none}
+.slide.on{opacity:1;transform:translateY(0)}
+.kicker{font-size:1.05vw;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:1.6vh}
+h1{font-size:3.5vw;line-height:1.15;font-weight:650;letter-spacing:-.02em;
+  text-align:center;max-width:66vw}
+h1 em{font-style:normal;color:var(--accent)}
+h1 .dk{font-style:normal;color:var(--dark)}
+h1 .gd{font-style:normal;color:var(--good)}
+p.sub{margin-top:2.4vh;font-size:1.45vw;line-height:1.6;color:var(--dim);
+  text-align:center;max-width:56vw}
+p.sub b{color:var(--ink);font-weight:600}
+
+.stats{display:flex;gap:3.5vw;margin-top:5vh}
+.stat{text-align:center}
+.stat .v{font-size:4vw;font-weight:700;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.stat .l{font-size:.95vw;color:var(--dim);margin-top:1.2vh;
+  letter-spacing:.1em;text-transform:uppercase}
+.v.a{color:var(--accent)} .v.g{color:var(--good)}
+.v.d{color:var(--dark)} .v.w{color:var(--warn)}
+
+.strip{display:flex;gap:.28vw;margin-top:4.5vh;width:74vw}
+.strip i{flex:1;height:5.2vh;border-radius:.3vw;background:#1b2434;
+  display:flex;align-items:center;justify-content:center;
+  font:600 .72vw var(--mono);color:#54627a;font-style:normal}
+.strip i.lit{background:#16233d;color:#7ea6ff}
+.strip i.dk{background:#2a1c46;color:#c3a2ff}
+
+.rows{margin-top:4vh;width:62vw;font-family:var(--mono);font-size:1.15vw}
+.row{display:flex;align-items:center;gap:1.4vw;padding:1.5vh 0;
+  border-bottom:1px solid var(--line);opacity:0;
+  animation:fadeUp .5s ease forwards}
+.row:last-child{border-bottom:0}
+.row .tick{color:var(--good);font-weight:700;width:1.6vw}
+.row .what{flex:1;color:var(--dim)}
+.row .got{color:var(--ink);font-weight:600}
+.row .lift{color:var(--good);font-weight:700;text-align:right;width:6vw}
+@keyframes fadeUp{to{opacity:1}}
+
+.term{margin-top:4vh;width:66vw;background:#070a11;border:1px solid var(--line);
+  border-radius:.6vw;padding:2.4vh 2vw;font-family:var(--mono);
+  font-size:1.05vw;line-height:1.85;text-align:left}
+.term .g{color:var(--good)} .term .m{color:var(--dim)} .term .a{color:var(--accent)}
+
+.compare{display:flex;gap:2vw;margin-top:4.5vh;align-items:stretch}
+.card{background:#111823;border:1px solid var(--line);border-radius:.7vw;
+  padding:3vh 2.6vw;min-width:19vw;text-align:center}
+.card .h{font-size:.95vw;color:var(--dim);text-transform:uppercase;
+  letter-spacing:.12em;margin-bottom:1.8vh}
+.card .b{font-size:3vw;font-weight:700;letter-spacing:-.02em}
+.card.bad .b{color:var(--warn)} .card.good .b{color:var(--good)}
+.card .n{font-size:.9vw;color:var(--dim);margin-top:1.2vh}
+.arrow{display:flex;align-items:center;font-size:2.4vw;color:var(--dim)}
+
+#bar{position:fixed;left:0;bottom:0;height:.42vh;background:var(--accent);width:0}
+#chapter{position:fixed;right:2.4vw;bottom:2.6vh;font:600 .85vw var(--mono);
+  color:#3b4761;letter-spacing:.1em}
+#brand{position:fixed;left:2.4vw;bottom:2.4vh;font-size:.95vw;color:#3b4761;
+  letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+#start{position:fixed;inset:0;background:var(--bg);display:flex;
+  flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;z-index:50}
+#start h2{font-size:2.4vw;font-weight:600}
+#start p{margin-top:2vh;color:var(--dim);font-size:1.2vw}
+#start .k{margin-top:5vh;padding:1.4vh 2.4vw;border:1px solid var(--accent);
+  border-radius:.5vw;color:var(--accent);font-size:1.1vw;font-weight:600}
+</style>
+</head>
+<body>
+
+<div id="start">
+  <h2>Loom &mdash; 2 minute prototype demo</h2>
+  <p>Go fullscreen (F11), start your screen recorder, then click.</p>
+  <div class="k">Click anywhere to play</div>
+</div>
+
+<div id="stage">
+
+  <!-- 0:00 - 0:16 -->
+  <section class="slide" data-t="0">
+    <div class="kicker">The problem</div>
+    <h1>Every assembly-line digital twin assumes<br>a <em>fully instrumented</em> factory.<br>Real lines are not.</h1>
+    <div class="stats">
+      <div class="stat"><div class="v a">42</div><div class="l">stations</div></div>
+      <div class="stat"><div class="v d">13</div><div class="l">with no sensors</div></div>
+      <div class="stat"><div class="v w">2&times;/yr</div><div class="l">retrofit windows</div></div>
+    </div>
+  </section>
+
+  <!-- 0:16 - 0:40 -->
+  <section class="slide" data-t="16">
+    <div class="kicker">The core idea</div>
+    <h1>A blind station still tells you<br><em>when a car arrived and left.</em></h1>
+    <p class="sub">That gap is work time <b>plus</b> time stuck waiting. Being stuck leaves a
+    fingerprint &mdash; a blocked car departs the instant a space frees downstream. So every
+    observation is either an <b>exact measurement</b> or a <b>known upper bound</b>.
+    That is a censored-likelihood problem.</p>
+    <div class="stats">
+      <div class="stat"><div class="v g">0.21%</div><div class="l">median cycle-time error</div></div>
+      <div class="stat"><div class="v g">0.62 s</div><div class="l">start-time MAE</div></div>
+      <div class="stat"><div class="v a">85%</div><div class="l">interval coverage</div></div>
+    </div>
+  </section>
+
+  <!-- 0:40 - 1:00 -->
+  <section class="slide" data-t="40">
+    <div class="kicker">Day 12 &mdash; the bottleneck moves</div>
+    <h1>It moves <span class="dk">into the blind zone.</span></h1>
+    <p class="sub">A conventional twin loses the constraint entirely. Loom follows it,
+    and forecasts the switch <b>~4 days</b> before present-state detection.</p>
+    <div class="strip" id="strip"></div>
+    <p class="sub" style="margin-top:2.6vh;font-size:1.05vw">
+      <span style="color:#7ea6ff">&#9632;</span> instrumented &nbsp;&nbsp;
+      <span style="color:#c3a2ff">&#9632;</span> no sensors</p>
+  </section>
+
+  <!-- 1:00 - 1:32 -->
+  <section class="slide" data-t="60">
+    <div class="kicker">Root cause &mdash; 200 hypotheses, FDR controlled</div>
+    <h1>A defect found at final inspection was created<br><em>30 stations earlier.</em></h1>
+    <div class="rows" id="bt"></div>
+  </section>
+
+  <!-- 1:32 - 1:45 -->
+  <section class="slide" data-t="92">
+    <div class="kicker">Containment</div>
+    <h1><em>53 cars</em> still on the line<br>carry the same exposure.</h1>
+    <p class="sub">Loom names them. That is a <b>VIN list</b>, not a date range.</p>
+    <div class="compare">
+      <div class="card bad"><div class="h">Without</div><div class="b">3 days</div>
+        <div class="n">sweep a date range</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="card good"><div class="h">With Loom</div><div class="b">130 ms</div>
+        <div class="n">53 specific vehicles</div></div>
+    </div>
+  </section>
+
+  <!-- 1:45 - 2:00 -->
+  <section class="slide" data-t="105">
+    <div class="kicker">Proof</div>
+    <h1>Scored against ground truth<br>the system <em>never sees.</em></h1>
+    <div class="term" id="term"></div>
+    <p class="sub" style="margin-top:3vh">Our README names the three places our numbers are
+    weak. <b>We would rather you trust the ones that are strong.</b></p>
+  </section>
+
+</div>
+
+<div id="bar"></div>
+<div id="brand">Loom</div>
+<div id="chapter"></div>
+
+<script>
+const DUR = 120;                       // seconds
+const slides = [...document.querySelectorAll('.slide')];
+const times  = slides.map(s => +s.dataset.t);
+const names  = ['problem','the idea','bottleneck','root cause','containment','proof'];
+
+// day-by-day bottleneck strip, from the real run
+const STRIP = [
+  ['S33',0],['S33',0],['S15',0],['S15',0],['S36',0],
+  ['S28',1],['S28',1],['S28',1],['S28',1],['S28',1]
+];
+const stripEl = document.getElementById('strip');
+STRIP.forEach(([sid,dark],i)=>{
+  const el=document.createElement('i');
+  el.className = dark ? 'dk' : 'lit';
+  el.textContent = sid;
+  el.style.opacity = 0;
+  el.style.transition = 'opacity .3s ease';
+  stripEl.appendChild(el);
+});
+
+const BT = [
+  ['LOOSE_FASTENER','S12 torque below spec','5.6&times;'],
+  ['PAINT_FINISH','paint zone humidity &mdash; one air handler, not four robots','23.5&times;'],
+  ['ELECTRICAL_FAULT','contaminated connector lot','19.0&times;'],
+  ['FIT_MISALIGN','one operator, not their shift','26.0&times;']
+];
+const btEl = document.getElementById('bt');
+BT.forEach(([d,w,l],i)=>{
+  const r=document.createElement('div');
+  r.className='row';
+  r.style.animationDelay=(1.1+i*0.85)+'s';
+  r.innerHTML=`<span class="tick">&#10003;</span><span class="got">${d}</span>
+               <span class="what">${w}</span><span class="lift">${l}</span>`;
+  btEl.appendChild(r);
+});
+
+const TERM = [
+  '<span class="m">$</span> python eval/run_eval.py --seeds 3',
+  '<span class="g">  PASS</span>  soft-sensor error at 13 blind stations',
+  '<span class="g">  PASS</span>  root cause, rank 1 &nbsp;<span class="a">4 of 4, every seed</span>',
+  '<span class="g">  PASS</span>  SPC recall on drift, degradation, micro-stops',
+  '<span class="g">  PASS</span>  conformal coverage under drift',
+  '<span class="m">  ...</span>',
+  '<span class="a">  10 of 10 checks passed &mdash; fails the build if any number drifts</span>'
+];
+
+let started=false;
+function play(){
+  if(started) return; started=true;
+  document.getElementById('start').style.display='none';
+  const t0=performance.now();
+
+  function frame(now){
+    const t=(now-t0)/1000;
+    document.getElementById('bar').style.width=Math.min(t/DUR*100,100)+'%';
+
+    let idx=0;
+    for(let i=0;i<times.length;i++) if(t>=times[i]) idx=i;
+    slides.forEach((s,i)=>s.classList.toggle('on',i===idx));
+    document.getElementById('chapter').textContent=
+      String(idx+1).padStart(2,'0')+' / 06  '+names[idx].toUpperCase();
+
+    // strip reveals one day at a time
+    if(idx===2){
+      const local=t-times[2];
+      [...stripEl.children].forEach((el,i)=>{
+        el.style.opacity = local > 1.0+i*0.55 ? 1 : 0;
+      });
+    }
+    // terminal types itself out
+    if(idx===5){
+      const local=t-times[5];
+      const n=Math.min(TERM.length,Math.floor(local/1.05));
+      document.getElementById('term').innerHTML=TERM.slice(0,n).join('<br>');
+    }
+    if(t<DUR+1.5) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+document.addEventListener('click',play);
+document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter')play();});
+</script>
+</body>
+</html>

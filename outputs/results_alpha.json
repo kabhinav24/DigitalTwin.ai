@@ -1,0 +1,3096 @@
+{
+  "meta": {
+    "days": 20,
+    "seed": 7,
+    "line": "alpha",
+    "faults": "default"
+  },
+  "line": {
+    "name": "Plant Alpha / Line 2",
+    "parallel_stations": [
+      "S04",
+      "S10"
+    ],
+    "rework_gates": [
+      "S14"
+    ],
+    "n_reworked_units": 1462,
+    "n_stations": 42,
+    "sensor_coverage": 0.69,
+    "dark_stations": [
+      "S03",
+      "S06",
+      "S09",
+      "S11",
+      "S13",
+      "S18",
+      "S21",
+      "S25",
+      "S28",
+      "S31",
+      "S35",
+      "S38",
+      "S41"
+    ],
+    "takt_s": 60.0,
+    "n_units": 19200,
+    "units_per_day": 960,
+    "days": 20,
+    "zones": [
+      "BODY",
+      "FINAL",
+      "PAINT"
+    ]
+  },
+  "faults": [
+    {
+      "fault_id": "F1",
+      "kind": "PARAM_DRIFT",
+      "target": "S12",
+      "start_day": 9.0,
+      "end_day": 20.0,
+      "magnitude": 0.3,
+      "defect_type": "LOOSE_FASTENER",
+      "note": "Torque tool drifts ~0.30 Nm/day below nominal. Defect is created in the body shop but only surfaces at S42 final inspection ~40 min and 30 stations later."
+    },
+    {
+      "fault_id": "F2",
+      "kind": "CYCLE_DEGRADE",
+      "target": "S28",
+      "start_day": 6.0,
+      "end_day": 20.0,
+      "magnitude": 0.0075,
+      "defect_type": null,
+      "note": "Un-instrumented manual station degrades 0.75%/day. Invisible to any sensor; must be inferred from scan timestamps."
+    },
+    {
+      "fault_id": "F3",
+      "kind": "LOT_CONTAM",
+      "target": "LOT-425",
+      "start_day": 0.0,
+      "end_day": 99.0,
+      "magnitude": 6.2,
+      "defect_type": "ELECTRICAL_FAULT",
+      "note": "One supplier lot of connectors carries 6.2x baseline defect propensity. Attribution must land on the lot, not the station."
+    },
+    {
+      "fault_id": "F4",
+      "kind": "ENV_EXCURSION",
+      "target": "PAINT",
+      "start_day": 15.0,
+      "end_day": 16.6,
+      "magnitude": 14.0,
+      "defect_type": "PAINT_FINISH",
+      "note": "Booth humidity rises ~14 points for 1.5 days. Confounder: a naive station-level test will blame whichever paint booth ran most units in the window."
+    },
+    {
+      "fault_id": "F6",
+      "kind": "OPERATOR_VAR",
+      "target": "FINAL-OP2",
+      "start_day": 0.0,
+      "end_day": 99.0,
+      "magnitude": 1.55,
+      "defect_type": "FIT_MISALIGN",
+      "note": "One operator in final assembly runs 55% wider cycle-time variance and a raised miss rate on manual fits. Tests whether attribution can separate a person from the shift and the station they happened to be working.",
+      "n_units_affected": 4320
+    },
+    {
+      "fault_id": "F5",
+      "kind": "MICROSTOP",
+      "target": "S07",
+      "start_day": 3.0,
+      "end_day": 20.0,
+      "magnitude": 0.011,
+      "defect_type": null,
+      "note": "Intermittent 90-240 s micro-stoppages on an instrumented robot. Tests SPC on a station that does have sensors.",
+      "n_events": 159
+    }
+  ],
+  "data_quality": {
+    "mode": "dirty scans, repaired",
+    "injected": {
+      "n_missed": 11898,
+      "n_duplicate": 3093,
+      "n_late": 5047
+    },
+    "repair": {
+      "missed_injected": 11898,
+      "missed_detected": 11898,
+      "missed_detection_rate": 1.0,
+      "duplicates_injected": 3093,
+      "duplicates_corrected": 0,
+      "late_injected": 5047,
+      "drift_readers_flagged": 1
+    },
+    "overall_quality": 0.9005,
+    "notes": [
+      "11898 missed reads imputed; affected stations carry a reduced confidence downstream",
+      "3849 late scans pulled back to a feasible gap",
+      "clock drift suspected at 1 readers; these are flagged, not corrected - check NTP sync"
+    ],
+    "per_station": [
+      {
+        "sid": "S01",
+        "instrumented": true,
+        "missing_rate": 0.0,
+        "imputed_rate": 0.0,
+        "clock_drift_observed_s": 0.0,
+        "clock_drift_flag": false,
+        "quality": 1.0
+      },
+      {
+        "sid": "S02",
+        "instrumented": true,
+        "missing_rate": 0.0145,
+        "imputed_rate": 0.0145,
+        "clock_drift_observed_s": 0.1997,
+        "clock_drift_flag": false,
+        "quality": 0.9128
+      },
+      {
+        "sid": "S03",
+        "instrumented": false,
+        "missing_rate": 0.0132,
+        "imputed_rate": 0.0132,
+        "clock_drift_observed_s": 0.5947,
+        "clock_drift_flag": false,
+        "quality": 0.9209
+      },
+      {
+        "sid": "S04",
+        "instrumented": true,
+        "missing_rate": 0.0162,
+        "imputed_rate": 0.0162,
+        "clock_drift_observed_s": -1.7221,
+        "clock_drift_flag": false,
+        "quality": 0.9025
+      },
+      {
+        "sid": "S05",
+        "instrumented": true,
+        "missing_rate": 0.0152,
+        "imputed_rate": 0.0152,
+        "clock_drift_observed_s": 0.0302,
+        "clock_drift_flag": false,
+        "quality": 0.9087
+      },
+      {
+        "sid": "S06",
+        "instrumented": false,
+        "missing_rate": 0.0162,
+        "imputed_rate": 0.0162,
+        "clock_drift_observed_s": 0.0037,
+        "clock_drift_flag": false,
+        "quality": 0.9025
+      },
+      {
+        "sid": "S07",
+        "instrumented": true,
+        "missing_rate": 0.0172,
+        "imputed_rate": 0.0172,
+        "clock_drift_observed_s": 0.2833,
+        "clock_drift_flag": false,
+        "quality": 0.8969
+      },
+      {
+        "sid": "S08",
+        "instrumented": true,
+        "missing_rate": 0.0156,
+        "imputed_rate": 0.0156,
+        "clock_drift_observed_s": -0.061,
+        "clock_drift_flag": false,
+        "quality": 0.9066
+      },
+      {
+        "sid": "S09",
+        "instrumented": false,
+        "missing_rate": 0.0141,
+        "imputed_rate": 0.0141,
+        "clock_drift_observed_s": -0.184,
+        "clock_drift_flag": false,
+        "quality": 0.9156
+      },
+      {
+        "sid": "S10",
+        "instrumented": true,
+        "missing_rate": 0.0146,
+        "imputed_rate": 0.0146,
+        "clock_drift_observed_s": -0.9814,
+        "clock_drift_flag": false,
+        "quality": 0.9122
+      },
+      {
+        "sid": "S11",
+        "instrumented": false,
+        "missing_rate": 0.0143,
+        "imputed_rate": 0.0143,
+        "clock_drift_observed_s": 0.1214,
+        "clock_drift_flag": false,
+        "quality": 0.9144
+      },
+      {
+        "sid": "S12",
+        "instrumented": true,
+        "missing_rate": 0.0155,
+        "imputed_rate": 0.0155,
+        "clock_drift_observed_s": 0.4616,
+        "clock_drift_flag": false,
+        "quality": 0.9072
+      },
+      {
+        "sid": "S13",
+        "instrumented": false,
+        "missing_rate": 0.0157,
+        "imputed_rate": 0.0157,
+        "clock_drift_observed_s": -0.4115,
+        "clock_drift_flag": false,
+        "quality": 0.9059
+      },
+      {
+        "sid": "S14",
+        "instrumented": true,
+        "missing_rate": 0.0153,
+        "imputed_rate": 0.0153,
+        "clock_drift_observed_s": 0.0142,
+        "clock_drift_flag": false,
+        "quality": 0.9084
+      },
+      {
+        "sid": "S15",
+        "instrumented": true,
+        "missing_rate": 0.0138,
+        "imputed_rate": 0.0138,
+        "clock_drift_observed_s": 0.3991,
+        "clock_drift_flag": false,
+        "quality": 0.9169
+      },
+      {
+        "sid": "S16",
+        "instrumented": true,
+        "missing_rate": 0.0147,
+        "imputed_rate": 0.0147,
+        "clock_drift_observed_s": 0.3962,
+        "clock_drift_flag": false,
+        "quality": 0.9116
+      },
+      {
+        "sid": "S17",
+        "instrumented": true,
+        "missing_rate": 0.0152,
+        "imputed_rate": 0.0152,
+        "clock_drift_observed_s": 0.2435,
+        "clock_drift_flag": false,
+        "quality": 0.9091
+      },
+      {
+        "sid": "S18",
+        "instrumented": false,
+        "missing_rate": 0.0154,
+        "imputed_rate": 0.0154,
+        "clock_drift_observed_s": 0.3844,
+        "clock_drift_flag": false,
+        "quality": 0.9078
+      },
+      {
+        "sid": "S19",
+        "instrumented": true,
+        "missing_rate": 0.0149,
+        "imputed_rate": 0.0149,
+        "clock_drift_observed_s": -0.0375,
+        "clock_drift_flag": false,
+        "quality": 0.9106
+      },
+      {
+        "sid": "S20",
+        "instrumented": true,
+        "missing_rate": 0.0165,
+        "imputed_rate": 0.0165,
+        "clock_drift_observed_s": 0.1674,
+        "clock_drift_flag": false,
+        "quality": 0.9009
+      },
+      {
+        "sid": "S21",
+        "instrumented": false,
+        "missing_rate": 0.0148,
+        "imputed_rate": 0.0148,
+        "clock_drift_observed_s": 0.5639,
+        "clock_drift_flag": false,
+        "quality": 0.9113
+      },
+      {
+        "sid": "S22",
+        "instrumented": true,
+        "missing_rate": 0.0154,
+        "imputed_rate": 0.0154,
+        "clock_drift_observed_s": 0.8735,
+        "clock_drift_flag": false,
+        "quality": 0.9078
+      },
+      {
+        "sid": "S23",
+        "instrumented": true,
+        "missing_rate": 0.0144,
+        "imputed_rate": 0.0144,
+        "clock_drift_observed_s": 0.1082,
+        "clock_drift_flag": false,
+        "quality": 0.9137
+      },
+      {
+        "sid": "S24",
+        "instrumented": true,
+        "missing_rate": 0.0136,
+        "imputed_rate": 0.0136,
+        "clock_drift_observed_s": 0.2319,
+        "clock_drift_flag": false,
+        "quality": 0.9184
+      },
+      {
+        "sid": "S25",
+        "instrumented": false,
+        "missing_rate": 0.0144,
+        "imputed_rate": 0.0144,
+        "clock_drift_observed_s": 1.4591,
+        "clock_drift_flag": false,
+        "quality": 0.9137
+      },
+      {
+        "sid": "S26",
+        "instrumented": true,
+        "missing_rate": 0.0146,
+        "imputed_rate": 0.0146,
+        "clock_drift_observed_s": 0.8066,
+        "clock_drift_flag": false,
+        "quality": 0.9125
+      },
+      {
+        "sid": "S27",
+        "instrumented": true,
+        "missing_rate": 0.0166,
+        "imputed_rate": 0.0166,
+        "clock_drift_observed_s": 1.577,
+        "clock_drift_flag": false,
+        "quality": 0.9006
+      },
+      {
+        "sid": "S28",
+        "instrumented": false,
+        "missing_rate": 0.0137,
+        "imputed_rate": 0.0137,
+        "clock_drift_observed_s": 6.3374,
+        "clock_drift_flag": true,
+        "quality": 0.4589
+      },
+      {
+        "sid": "S29",
+        "instrumented": true,
+        "missing_rate": 0.0162,
+        "imputed_rate": 0.0162,
+        "clock_drift_observed_s": -0.546,
+        "clock_drift_flag": false,
+        "quality": 0.9031
+      },
+      {
+        "sid": "S30",
+        "instrumented": true,
+        "missing_rate": 0.0166,
+        "imputed_rate": 0.0166,
+        "clock_drift_observed_s": -0.4036,
+        "clock_drift_flag": false,
+        "quality": 0.9003
+      },
+      {
+        "sid": "S31",
+        "instrumented": false,
+        "missing_rate": 0.0131,
+        "imputed_rate": 0.0131,
+        "clock_drift_observed_s": -1.2051,
+        "clock_drift_flag": false,
+        "quality": 0.9213
+      },
+      {
+        "sid": "S32",
+        "instrumented": true,
+        "missing_rate": 0.0154,
+        "imputed_rate": 0.0154,
+        "clock_drift_observed_s": -0.3604,
+        "clock_drift_flag": false,
+        "quality": 0.9078
+      },
+      {
+        "sid": "S33",
+        "instrumented": true,
+        "missing_rate": 0.0156,
+        "imputed_rate": 0.0156,
+        "clock_drift_observed_s": -1.4426,
+        "clock_drift_flag": false,
+        "quality": 0.9066
+      },
+      {
+        "sid": "S34",
+        "instrumented": true,
+        "missing_rate": 0.015,
+        "imputed_rate": 0.015,
+        "clock_drift_observed_s": -0.4617,
+        "clock_drift_flag": false,
+        "quality": 0.91
+      },
+      {
+        "sid": "S35",
+        "instrumented": false,
+        "missing_rate": 0.0145,
+        "imputed_rate": 0.0145,
+        "clock_drift_observed_s": -0.5015,
+        "clock_drift_flag": false,
+        "quality": 0.9128
+      },
+      {
+        "sid": "S36",
+        "instrumented": true,
+        "missing_rate": 0.0165,
+        "imputed_rate": 0.0165,
+        "clock_drift_observed_s": -0.3131,
+        "clock_drift_flag": false,
+        "quality": 0.9009
+      },
+      {
+        "sid": "S37",
+        "instrumented": true,
+        "missing_rate": 0.0144,
+        "imputed_rate": 0.0144,
+        "clock_drift_observed_s": -0.415,
+        "clock_drift_flag": false,
+        "quality": 0.9137
+      },
+      {
+        "sid": "S38",
+        "instrumented": false,
+        "missing_rate": 0.0145,
+        "imputed_rate": 0.0145,
+        "clock_drift_observed_s": -0.005,
+        "clock_drift_flag": false,
+        "quality": 0.9128
+      },
+      {
+        "sid": "S39",
+        "instrumented": true,
+        "missing_rate": 0.015,
+        "imputed_rate": 0.015,
+        "clock_drift_observed_s": -0.543,
+        "clock_drift_flag": false,
+        "quality": 0.9103
+      },
+      {
+        "sid": "S40",
+        "instrumented": true,
+        "missing_rate": 0.0156,
+        "imputed_rate": 0.0156,
+        "clock_drift_observed_s": -0.3685,
+        "clock_drift_flag": false,
+        "quality": 0.9062
+      },
+      {
+        "sid": "S41",
+        "instrumented": false,
+        "missing_rate": 0.0157,
+        "imputed_rate": 0.0157,
+        "clock_drift_observed_s": -0.1974,
+        "clock_drift_flag": false,
+        "quality": 0.9059
+      },
+      {
+        "sid": "S42",
+        "instrumented": true,
+        "missing_rate": 0.0162,
+        "imputed_rate": 0.0162,
+        "clock_drift_observed_s": -0.1965,
+        "clock_drift_flag": false,
+        "quality": 0.9025
+      }
+    ]
+  },
+  "state_reconstruction": {
+    "start_mae_s": 0.6178094602518382,
+    "starved_mae_s": 116.57416652721486,
+    "blocked_precision": 0.7674452800067219,
+    "blocked_recall": 0.9697669480278176,
+    "graph_schema_nodes": 11,
+    "graph_schema_edges": 11
+  },
+  "soft_sensor_confidence_adjustment": {
+    "mean_confidence_before": 0.9319,
+    "mean_confidence_after": 0.8388,
+    "note": "soft-sensor confidence is multiplied by the data-quality score of that station's scan feed, so an estimate built on imputed reads is never presented as if it were clean"
+  },
+  "soft_sensors": {
+    "window_days": [
+      16.0,
+      20.0
+    ],
+    "median_abs_pct_err": 0.21287805262624482,
+    "max_abs_pct_err": 1.6114585463138198,
+    "ci95_coverage": 0.8461538461538461,
+    "n_censored_mle": 10,
+    "table": [
+      {
+        "sid": "S03",
+        "type": "manual_fit",
+        "true_mean_s": 52.7452,
+        "est_mean_s": 52.755,
+        "abs_err_s": 0.0098,
+        "pct_err": 0.0185,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "S06",
+        "type": "manual_fit",
+        "true_mean_s": 53.7482,
+        "est_mean_s": 54.1474,
+        "abs_err_s": 0.3992,
+        "pct_err": 0.7426,
+        "in_95ci": false,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S09",
+        "type": "manual_fit",
+        "true_mean_s": 54.1434,
+        "est_mean_s": 54.1339,
+        "abs_err_s": 0.0095,
+        "pct_err": 0.0175,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "S11",
+        "type": "sealer",
+        "true_mean_s": 50.0281,
+        "est_mean_s": 50.1407,
+        "abs_err_s": 0.1126,
+        "pct_err": 0.2251,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "S13",
+        "type": "manual_fit",
+        "true_mean_s": 54.6421,
+        "est_mean_s": 54.9408,
+        "abs_err_s": 0.2987,
+        "pct_err": 0.5467,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S18",
+        "type": "manual_fit",
+        "true_mean_s": 51.2017,
+        "est_mean_s": 51.3107,
+        "abs_err_s": 0.109,
+        "pct_err": 0.2129,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.9174
+      },
+      {
+        "sid": "S21",
+        "type": "manual_fit",
+        "true_mean_s": 54.032,
+        "est_mean_s": 54.0761,
+        "abs_err_s": 0.0441,
+        "pct_err": 0.0816,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.8903
+      },
+      {
+        "sid": "S25",
+        "type": "manual_fit",
+        "true_mean_s": 54.2519,
+        "est_mean_s": 53.3777,
+        "abs_err_s": 0.8742,
+        "pct_err": 1.6115,
+        "in_95ci": false,
+        "method": "censored-mle",
+        "confidence": 0.6848
+      },
+      {
+        "sid": "S28",
+        "type": "manual_fit",
+        "true_mean_s": 61.3638,
+        "est_mean_s": 61.3871,
+        "abs_err_s": 0.0233,
+        "pct_err": 0.0379,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S31",
+        "type": "manual_fit",
+        "true_mean_s": 53.2647,
+        "est_mean_s": 53.3732,
+        "abs_err_s": 0.1085,
+        "pct_err": 0.2036,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S35",
+        "type": "manual_fit",
+        "true_mean_s": 55.8292,
+        "est_mean_s": 55.9494,
+        "abs_err_s": 0.1202,
+        "pct_err": 0.2154,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S38",
+        "type": "manual_fit",
+        "true_mean_s": 52.157,
+        "est_mean_s": 52.2683,
+        "abs_err_s": 0.1113,
+        "pct_err": 0.2134,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "S41",
+        "type": "manual_fit",
+        "true_mean_s": 54.2779,
+        "est_mean_s": 54.3856,
+        "abs_err_s": 0.1077,
+        "pct_err": 0.1984,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "spc": {
+    "n_charts": 274,
+    "n_dark_charts": 52,
+    "station_faults_detected": 3,
+    "station_faults_total": 3,
+    "mean_lag_days": 5.333333333333333,
+    "mean_onset_error_days": 2.1666666666666665,
+    "false_alarm": {
+      "clean_stations": 19,
+      "clean_station_charts": 124,
+      "charts_firing": 30,
+      "false_alarm_rate_upper_bound": 0.24193548387096775,
+      "by_chart": {
+        "CUSUM": 0.274,
+        "EWMA": 0.21
+      }
+    },
+    "operating_point": {
+      "ewma_L": 5.5,
+      "cusum_h": 9.35,
+      "persistence_blocks": 2
+    },
+    "table": [
+      {
+        "fault_id": "F1",
+        "kind": "PARAM_DRIFT",
+        "target": "S12",
+        "start_day": 9.0,
+        "detected": true,
+        "chart": "EWMA",
+        "signal": "torque_nm",
+        "detect_day": 10.5,
+        "lag_days": 1.5,
+        "onset_estimate_day": 4.5,
+        "onset_error_days": -4.5
+      },
+      {
+        "fault_id": "F2",
+        "kind": "CYCLE_DEGRADE",
+        "target": "S28",
+        "start_day": 6.0,
+        "detected": true,
+        "chart": "CUSUM",
+        "signal": "soft_dwell_s",
+        "detect_day": 18.5,
+        "lag_days": 12.5,
+        "onset_estimate_day": 7.5,
+        "onset_error_days": 1.5
+      },
+      {
+        "fault_id": "F3",
+        "kind": "LOT_CONTAM",
+        "target": "LOT-425",
+        "start_day": 0.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F4",
+        "kind": "ENV_EXCURSION",
+        "target": "PAINT",
+        "start_day": 15.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F6",
+        "kind": "OPERATOR_VAR",
+        "target": "FINAL-OP2",
+        "start_day": 0.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F5",
+        "kind": "MICROSTOP",
+        "target": "S07",
+        "start_day": 3.0,
+        "detected": true,
+        "chart": "EWMA",
+        "signal": "cycle_time_s",
+        "detect_day": 5.0,
+        "lag_days": 2.0,
+        "onset_estimate_day": 2.5,
+        "onset_error_days": -0.5
+      }
+    ]
+  },
+  "bottleneck_timeline": [
+    {
+      "day_from": 0,
+      "day_to": 1,
+      "top": "S33",
+      "share": 0.347,
+      "instrumented": true,
+      "runners": [
+        {
+          "sid": "S28",
+          "share": 0.152
+        },
+        {
+          "sid": "S15",
+          "share": 0.142
+        },
+        {
+          "sid": "S19",
+          "share": 0.049
+        }
+      ]
+    },
+    {
+      "day_from": 2,
+      "day_to": 3,
+      "top": "S28",
+      "share": 0.243,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S15",
+          "share": 0.225
+        },
+        {
+          "sid": "S35",
+          "share": 0.129
+        },
+        {
+          "sid": "S25",
+          "share": 0.048
+        }
+      ]
+    },
+    {
+      "day_from": 4,
+      "day_to": 5,
+      "top": "S15",
+      "share": 0.31,
+      "instrumented": true,
+      "runners": [
+        {
+          "sid": "S33",
+          "share": 0.257
+        },
+        {
+          "sid": "S16",
+          "share": 0.116
+        },
+        {
+          "sid": "S07",
+          "share": 0.029
+        }
+      ]
+    },
+    {
+      "day_from": 6,
+      "day_to": 7,
+      "top": "S15",
+      "share": 0.379,
+      "instrumented": true,
+      "runners": [
+        {
+          "sid": "S16",
+          "share": 0.103
+        },
+        {
+          "sid": "S33",
+          "share": 0.102
+        },
+        {
+          "sid": "S28",
+          "share": 0.051
+        }
+      ]
+    },
+    {
+      "day_from": 8,
+      "day_to": 9,
+      "top": "S28",
+      "share": 0.381,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S33",
+          "share": 0.32
+        },
+        {
+          "sid": "S35",
+          "share": 0.049
+        },
+        {
+          "sid": "S16",
+          "share": 0.014
+        }
+      ]
+    },
+    {
+      "day_from": 10,
+      "day_to": 11,
+      "top": "S28",
+      "share": 0.223,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S33",
+          "share": 0.214
+        },
+        {
+          "sid": "S15",
+          "share": 0.167
+        },
+        {
+          "sid": "S22",
+          "share": 0.039
+        }
+      ]
+    },
+    {
+      "day_from": 12,
+      "day_to": 13,
+      "top": "S28",
+      "share": 0.313,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S15",
+          "share": 0.271
+        },
+        {
+          "sid": "S33",
+          "share": 0.086
+        },
+        {
+          "sid": "S16",
+          "share": 0.038
+        }
+      ]
+    },
+    {
+      "day_from": 14,
+      "day_to": 15,
+      "top": "S28",
+      "share": 0.724,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S33",
+          "share": 0.057
+        },
+        {
+          "sid": "S16",
+          "share": 0.013
+        },
+        {
+          "sid": "S09",
+          "share": 0.011
+        }
+      ]
+    },
+    {
+      "day_from": 16,
+      "day_to": 17,
+      "top": "S28",
+      "share": 0.613,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S33",
+          "share": 0.098
+        },
+        {
+          "sid": "S15",
+          "share": 0.042
+        },
+        {
+          "sid": "S16",
+          "share": 0.019
+        }
+      ]
+    },
+    {
+      "day_from": 18,
+      "day_to": 19,
+      "top": "S28",
+      "share": 0.782,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "S09",
+          "share": 0.009
+        },
+        {
+          "sid": "S40",
+          "share": 0.007
+        },
+        {
+          "sid": "S15",
+          "share": 0.007
+        }
+      ]
+    }
+  ],
+  "bottleneck_forecast": {
+    "n_triggers": 17,
+    "horizon_units": 480,
+    "top1_future": 0.23529411764705882,
+    "top1_present": 0.23529411764705882,
+    "top1_static": 0.4117647058823529,
+    "top2_future": 0.4117647058823529,
+    "top2_present": 0.35294117647058826,
+    "mean_runtime_ms": 623.035294117647,
+    "regime_change_lead": {
+      "station": "S28",
+      "first_day_future": 12.0,
+      "first_day_present": 12.0,
+      "first_day_static": 15.0,
+      "lead_shifts": 0.0,
+      "lead_hours": 0.0
+    },
+    "table": [
+      {
+        "trigger_unit": 2880,
+        "day": 3.0,
+        "actual": "S33",
+        "predicted": "S15",
+        "present": "S35",
+        "static": "S33",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": false,
+        "confidence": 0.774,
+        "runtime_ms": 341.4
+      },
+      {
+        "trigger_unit": 3840,
+        "day": 4.0,
+        "actual": "S15",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S28",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.66,
+        "runtime_ms": 398.0
+      },
+      {
+        "trigger_unit": 4800,
+        "day": 5.0,
+        "actual": "S16",
+        "predicted": "S28",
+        "present": "S33",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.891,
+        "runtime_ms": 400.1
+      },
+      {
+        "trigger_unit": 5760,
+        "day": 6.0,
+        "actual": "S15",
+        "predicted": "S33",
+        "present": "S33",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": true,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.46,
+        "runtime_ms": 427.1
+      },
+      {
+        "trigger_unit": 6720,
+        "day": 7.0,
+        "actual": "S15",
+        "predicted": "S16",
+        "present": "S16",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": true,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.376,
+        "runtime_ms": 468.4
+      },
+      {
+        "trigger_unit": 7680,
+        "day": 8.0,
+        "actual": "S28",
+        "predicted": "S15",
+        "present": "S15",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.447,
+        "runtime_ms": 496.3
+      },
+      {
+        "trigger_unit": 8640,
+        "day": 9.0,
+        "actual": "S28",
+        "predicted": "S23",
+        "present": "S33",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.6,
+        "runtime_ms": 556.6
+      },
+      {
+        "trigger_unit": 9600,
+        "day": 10.0,
+        "actual": "S33",
+        "predicted": "S23",
+        "present": "S33",
+        "static": "S33",
+        "pred_correct": false,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": false,
+        "present_in_top2": true,
+        "confidence": 0.342,
+        "runtime_ms": 606.7
+      },
+      {
+        "trigger_unit": 10560,
+        "day": 11.0,
+        "actual": "S16",
+        "predicted": "S13",
+        "present": "S33",
+        "static": "S33",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.346,
+        "runtime_ms": 604.0
+      },
+      {
+        "trigger_unit": 11520,
+        "day": 12.0,
+        "actual": "S15",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S33",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.946,
+        "runtime_ms": 667.7
+      },
+      {
+        "trigger_unit": 12480,
+        "day": 13.0,
+        "actual": "S16",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S15",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": false,
+        "present_in_top2": false,
+        "confidence": 0.532,
+        "runtime_ms": 675.8
+      },
+      {
+        "trigger_unit": 13440,
+        "day": 14.0,
+        "actual": "S28",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S15",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": false,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.577,
+        "runtime_ms": 707.1
+      },
+      {
+        "trigger_unit": 14400,
+        "day": 15.0,
+        "actual": "S28",
+        "predicted": "S28",
+        "present": "S33",
+        "static": "S28",
+        "pred_correct": true,
+        "present_correct": false,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": false,
+        "confidence": 0.742,
+        "runtime_ms": 812.3
+      },
+      {
+        "trigger_unit": 15360,
+        "day": 16.0,
+        "actual": "S33",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S28",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.942,
+        "runtime_ms": 816.9
+      },
+      {
+        "trigger_unit": 16320,
+        "day": 17.0,
+        "actual": "S15",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S28",
+        "pred_correct": false,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.875,
+        "runtime_ms": 841.9
+      },
+      {
+        "trigger_unit": 17280,
+        "day": 18.0,
+        "actual": "S28",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S28",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.46,
+        "runtime_ms": 884.2
+      },
+      {
+        "trigger_unit": 18240,
+        "day": 19.0,
+        "actual": "S28",
+        "predicted": "S28",
+        "present": "S28",
+        "static": "S28",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.608,
+        "runtime_ms": 887.1
+      }
+    ]
+  },
+  "defect_models": [
+    {
+      "defect_type": "WELD_POROSITY",
+      "gate": "S14",
+      "status": "fitted",
+      "n_features": 44,
+      "n_positive": 205,
+      "roc_auc": 0.596,
+      "pr_auc": 0.036,
+      "prequential_roc_auc": 0.539,
+      "prequential_pr_auc": 0.018,
+      "coverage_defect": 1.0,
+      "coverage_ok": 0.902,
+      "target_coverage": 0.9,
+      "flag_precision": 0.018,
+      "flag_recall": 0.159,
+      "abstain_rate": 0.892
+    },
+    {
+      "defect_type": "SEALANT_VOID",
+      "gate": "S14",
+      "status": "fitted",
+      "n_features": 44,
+      "n_positive": 291,
+      "roc_auc": 0.637,
+      "pr_auc": 0.058,
+      "prequential_roc_auc": 0.621,
+      "prequential_pr_auc": 0.053,
+      "coverage_defect": 0.964,
+      "coverage_ok": 0.903,
+      "target_coverage": 0.9,
+      "flag_precision": 0.025,
+      "flag_recall": 0.184,
+      "abstain_rate": 0.825
+    },
+    {
+      "defect_type": "PAINT_FINISH",
+      "gate": "S24",
+      "status": "fitted",
+      "n_features": 70,
+      "n_positive": 586,
+      "roc_auc": 0.464,
+      "pr_auc": 0.014,
+      "prequential_roc_auc": 0.501,
+      "prequential_pr_auc": 0.077,
+      "coverage_defect": 0.868,
+      "coverage_ok": 0.906,
+      "target_coverage": 0.9,
+      "flag_precision": 0.076,
+      "flag_recall": 0.097,
+      "abstain_rate": 0.788
+    },
+    {
+      "defect_type": "LOOSE_FASTENER",
+      "gate": "S42",
+      "status": "fitted",
+      "n_features": 103,
+      "n_positive": 745,
+      "roc_auc": 0.684,
+      "pr_auc": 0.155,
+      "prequential_roc_auc": 0.716,
+      "prequential_pr_auc": 0.144,
+      "coverage_defect": 0.907,
+      "coverage_ok": 0.847,
+      "target_coverage": 0.9,
+      "flag_precision": 0.16,
+      "flag_recall": 0.382,
+      "abstain_rate": 0.601
+    },
+    {
+      "defect_type": "ELECTRICAL_FAULT",
+      "gate": "S42",
+      "status": "fitted",
+      "n_features": 103,
+      "n_positive": 390,
+      "roc_auc": 0.549,
+      "pr_auc": 0.014,
+      "prequential_roc_auc": 0.569,
+      "prequential_pr_auc": 0.023,
+      "coverage_defect": 0.97,
+      "coverage_ok": 0.895,
+      "target_coverage": 0.9,
+      "flag_precision": 0.025,
+      "flag_recall": 0.172,
+      "abstain_rate": 0.817
+    },
+    {
+      "defect_type": "FIT_MISALIGN",
+      "gate": "S42",
+      "status": "fitted",
+      "n_features": 103,
+      "n_positive": 1320,
+      "roc_auc": 0.837,
+      "pr_auc": 0.238,
+      "prequential_roc_auc": 0.839,
+      "prequential_pr_auc": 0.244,
+      "coverage_defect": 0.455,
+      "coverage_ok": 0.77,
+      "target_coverage": 0.9,
+      "flag_precision": 0.161,
+      "flag_recall": 0.228,
+      "abstain_rate": 0.227
+    }
+  ],
+  "defect_blocks": {
+    "WELD_POROSITY": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8992,
+        "flag_rate": 0.1021,
+        "flag_precision": 0.0204,
+        "flag_recall": 0.25,
+        "abstain_rate": 0.8958,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8884,
+        "flag_rate": 0.1104,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8896,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8758,
+        "flag_rate": 0.1229,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8688,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8734,
+        "flag_rate": 0.1271,
+        "flag_precision": 0.0164,
+        "flag_recall": 0.1667,
+        "abstain_rate": 0.8729,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.0042,
+        "cov_defect": 1.0,
+        "cov_ok": 0.931,
+        "flag_rate": 0.0688,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9312,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9119,
+        "flag_rate": 0.0875,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9104,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0042,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9247,
+        "flag_rate": 0.075,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9167,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9119,
+        "flag_rate": 0.0875,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9104,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9093,
+        "flag_rate": 0.0938,
+        "flag_precision": 0.0444,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.8958,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8926,
+        "flag_rate": 0.1083,
+        "flag_precision": 0.0192,
+        "flag_recall": 0.2,
+        "abstain_rate": 0.8854,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9133,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0465,
+        "flag_recall": 0.2857,
+        "abstain_rate": 0.9062,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8882,
+        "flag_rate": 0.1188,
+        "flag_precision": 0.0702,
+        "flag_recall": 0.6667,
+        "abstain_rate": 0.8167,
+        "day": 19.5
+      }
+    ],
+    "SEALANT_VOID": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8629,
+        "flag_rate": 0.1396,
+        "flag_precision": 0.0299,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.8167,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 1.0,
+        "cov_ok": 0.871,
+        "flag_rate": 0.1292,
+        "flag_precision": 0.0161,
+        "flag_recall": 0.1429,
+        "abstain_rate": 0.7312,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9203,
+        "flag_rate": 0.0812,
+        "flag_precision": 0.0256,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.6875,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8432,
+        "flag_rate": 0.1562,
+        "flag_precision": 0.0133,
+        "flag_recall": 0.125,
+        "abstain_rate": 0.7542,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.0229,
+        "cov_defect": 0.8182,
+        "cov_ok": 0.9424,
+        "flag_rate": 0.0604,
+        "flag_precision": 0.069,
+        "flag_recall": 0.1818,
+        "abstain_rate": 0.8083,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9304,
+        "flag_rate": 0.0688,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8312,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9224,
+        "flag_rate": 0.0771,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9188,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0229,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8443,
+        "flag_rate": 0.1542,
+        "flag_precision": 0.0135,
+        "flag_recall": 0.0909,
+        "abstain_rate": 0.8438,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 0.75,
+        "cov_ok": 0.9349,
+        "flag_rate": 0.0688,
+        "flag_precision": 0.0606,
+        "flag_recall": 0.5,
+        "abstain_rate": 0.8812,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 1.0,
+        "cov_ok": 0.911,
+        "flag_rate": 0.0875,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8792,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9156,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0698,
+        "flag_recall": 0.5,
+        "abstain_rate": 0.8708,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.0042,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9331,
+        "flag_rate": 0.0667,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8771,
+        "day": 19.5
+      }
+    ],
+    "PAINT_FINISH": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 0.5,
+        "cov_ok": 0.8761,
+        "flag_rate": 0.1229,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.5688,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9119,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0233,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.5542,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.2167,
+        "cov_defect": 0.7115,
+        "cov_ok": 0.9388,
+        "flag_rate": 0.0604,
+        "flag_precision": 0.2069,
+        "flag_recall": 0.0577,
+        "abstain_rate": 0.7104,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.2292,
+        "cov_defect": 0.9,
+        "cov_ok": 0.9432,
+        "flag_rate": 0.0542,
+        "flag_precision": 0.1923,
+        "flag_recall": 0.0455,
+        "abstain_rate": 0.8667,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.2167,
+        "cov_defect": 0.9327,
+        "cov_ok": 0.883,
+        "flag_rate": 0.1146,
+        "flag_precision": 0.2,
+        "flag_recall": 0.1058,
+        "abstain_rate": 0.8333,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.1938,
+        "cov_defect": 0.871,
+        "cov_ok": 0.9302,
+        "flag_rate": 0.0729,
+        "flag_precision": 0.2286,
+        "flag_recall": 0.086,
+        "abstain_rate": 0.8354,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 0.6667,
+        "cov_ok": 0.9156,
+        "flag_rate": 0.0875,
+        "flag_precision": 0.0476,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.8396,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 0.8333,
+        "cov_ok": 0.9093,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8208,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0042,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8954,
+        "flag_rate": 0.1042,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8188,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8819,
+        "flag_rate": 0.1167,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8229,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8821,
+        "flag_rate": 0.1188,
+        "flag_precision": 0.0175,
+        "flag_recall": 0.2,
+        "abstain_rate": 0.8792,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9099,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9104,
+        "day": 19.5
+      }
+    ],
+    "LOOSE_FASTENER": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.0312,
+        "cov_defect": 0.6667,
+        "cov_ok": 0.7634,
+        "flag_rate": 0.25,
+        "flag_precision": 0.0833,
+        "flag_recall": 0.6667,
+        "abstain_rate": 0.1292,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0396,
+        "cov_defect": 0.8421,
+        "cov_ok": 0.8568,
+        "flag_rate": 0.1542,
+        "flag_precision": 0.1081,
+        "flag_recall": 0.4211,
+        "abstain_rate": 0.6104,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.0438,
+        "cov_defect": 0.9048,
+        "cov_ok": 0.8954,
+        "flag_rate": 0.1146,
+        "flag_precision": 0.1273,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.7333,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.0458,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8515,
+        "flag_rate": 0.1625,
+        "flag_precision": 0.1282,
+        "flag_recall": 0.4545,
+        "abstain_rate": 0.7479,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.05,
+        "cov_defect": 0.9583,
+        "cov_ok": 0.886,
+        "flag_rate": 0.1292,
+        "flag_precision": 0.1613,
+        "flag_recall": 0.4167,
+        "abstain_rate": 0.7021,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.0917,
+        "cov_defect": 0.9545,
+        "cov_ok": 0.8601,
+        "flag_rate": 0.1562,
+        "flag_precision": 0.1867,
+        "flag_recall": 0.3182,
+        "abstain_rate": 0.6625,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0938,
+        "cov_defect": 0.8444,
+        "cov_ok": 0.8575,
+        "flag_rate": 0.1729,
+        "flag_precision": 0.253,
+        "flag_recall": 0.4667,
+        "abstain_rate": 0.5167,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0896,
+        "cov_defect": 0.8605,
+        "cov_ok": 0.8238,
+        "flag_rate": 0.1833,
+        "flag_precision": 0.125,
+        "flag_recall": 0.2558,
+        "abstain_rate": 0.5375,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0979,
+        "cov_defect": 0.9574,
+        "cov_ok": 0.8406,
+        "flag_rate": 0.1771,
+        "flag_precision": 0.1882,
+        "flag_recall": 0.3404,
+        "abstain_rate": 0.6292,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0896,
+        "cov_defect": 0.9767,
+        "cov_ok": 0.8146,
+        "flag_rate": 0.1979,
+        "flag_precision": 0.1474,
+        "flag_recall": 0.3256,
+        "abstain_rate": 0.6333,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.1167,
+        "cov_defect": 0.9643,
+        "cov_ok": 0.8774,
+        "flag_rate": 0.1458,
+        "flag_precision": 0.2571,
+        "flag_recall": 0.3214,
+        "abstain_rate": 0.7146,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.1021,
+        "cov_defect": 0.9592,
+        "cov_ok": 0.8376,
+        "flag_rate": 0.1729,
+        "flag_precision": 0.1566,
+        "flag_recall": 0.2653,
+        "abstain_rate": 0.5979,
+        "day": 19.5
+      }
+    ],
+    "ELECTRICAL_FAULT": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 0.8571,
+        "cov_ok": 0.9154,
+        "flag_rate": 0.0896,
+        "flag_precision": 0.0698,
+        "flag_recall": 0.4286,
+        "abstain_rate": 0.4458,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0188,
+        "cov_defect": 0.7778,
+        "cov_ok": 0.9023,
+        "flag_rate": 0.0979,
+        "flag_precision": 0.0213,
+        "flag_recall": 0.1111,
+        "abstain_rate": 0.8271,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8517,
+        "flag_rate": 0.1542,
+        "flag_precision": 0.0541,
+        "flag_recall": 0.5,
+        "abstain_rate": 0.8458,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8505,
+        "flag_rate": 0.1479,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8438,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8326,
+        "flag_rate": 0.1688,
+        "flag_precision": 0.0247,
+        "flag_recall": 0.25,
+        "abstain_rate": 0.8271,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8732,
+        "flag_rate": 0.1271,
+        "flag_precision": 0.0164,
+        "flag_recall": 0.1429,
+        "abstain_rate": 0.8729,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9197,
+        "flag_rate": 0.0833,
+        "flag_precision": 0.05,
+        "flag_recall": 0.2857,
+        "abstain_rate": 0.8583,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9242,
+        "flag_rate": 0.0771,
+        "flag_precision": 0.027,
+        "flag_recall": 0.2,
+        "abstain_rate": 0.8583,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9287,
+        "flag_rate": 0.0708,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8812,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0146,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9514,
+        "flag_rate": 0.05,
+        "flag_precision": 0.0417,
+        "flag_recall": 0.1429,
+        "abstain_rate": 0.8833,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 1.0,
+        "cov_ok": 0.8889,
+        "flag_rate": 0.1104,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.8375,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9008,
+        "flag_rate": 0.0979,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.825,
+        "day": 19.5
+      }
+    ],
+    "FIT_MISALIGN": [
+      {
+        "block_start": 13440,
+        "n": 480,
+        "prevalence": 0.2562,
+        "cov_defect": 1.0,
+        "cov_ok": 0.0,
+        "flag_rate": 1.0,
+        "flag_precision": 0.2562,
+        "flag_recall": 1.0,
+        "abstain_rate": 0.0,
+        "day": 14.0
+      },
+      {
+        "block_start": 13920,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 0.0,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0,
+        "day": 14.5
+      },
+      {
+        "block_start": 14400,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 0.0,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0,
+        "day": 15.0
+      },
+      {
+        "block_start": 14880,
+        "n": 480,
+        "prevalence": 0.2812,
+        "cov_defect": 1.0,
+        "cov_ok": 0.3623,
+        "flag_rate": 0.6083,
+        "flag_precision": 0.2466,
+        "flag_recall": 0.5333,
+        "abstain_rate": 0.3917,
+        "day": 15.5
+      },
+      {
+        "block_start": 15360,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 0.0,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0,
+        "day": 16.0
+      },
+      {
+        "block_start": 15840,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 0.3333,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.2708,
+        "day": 16.5
+      },
+      {
+        "block_start": 16320,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 0.0,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0042,
+        "day": 17.0
+      },
+      {
+        "block_start": 16800,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 0.0,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0,
+        "day": 17.5
+      },
+      {
+        "block_start": 17280,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9391,
+        "flag_rate": 0.0604,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.9396,
+        "day": 18.0
+      },
+      {
+        "block_start": 17760,
+        "n": 480,
+        "prevalence": 0.0104,
+        "cov_defect": 1.0,
+        "cov_ok": 0.9347,
+        "flag_rate": 0.0667,
+        "flag_precision": 0.0312,
+        "flag_recall": 0.2,
+        "abstain_rate": 0.9292,
+        "day": 18.5
+      },
+      {
+        "block_start": 18240,
+        "n": 480,
+        "prevalence": 0.2688,
+        "cov_defect": 1.0,
+        "cov_ok": 0.0,
+        "flag_rate": 1.0,
+        "flag_precision": 0.2688,
+        "flag_recall": 1.0,
+        "abstain_rate": 0.0,
+        "day": 19.0
+      },
+      {
+        "block_start": 18720,
+        "n": 480,
+        "prevalence": 0.0167,
+        "cov_defect": 0.125,
+        "cov_ok": 1.0,
+        "flag_rate": 0.0,
+        "flag_precision": NaN,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.1854,
+        "day": 19.5
+      }
+    ]
+  },
+  "backtrace": [
+    {
+      "defect_type": "LOOSE_FASTENER",
+      "gate": "S42",
+      "at_day": 19,
+      "true_fault": "F1",
+      "expected": [
+        "S12"
+      ],
+      "n_findings": 266,
+      "n_candidates_tested": 192,
+      "n_significant": 1,
+      "rank1_kind": "STATION_SIGNAL",
+      "rank1_label": "S12:torque_nm low",
+      "rank1_lift": 5.63,
+      "rank1_q": 4.486775230984108e-27,
+      "rank1_confidence": 0.981,
+      "rank1_detail": "torque_nm more than 2.0sd low of the commissioning baseline at S12",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "S12:torque_nm low",
+          "detail": "torque_nm more than 2.0sd low of the commissioning baseline at S12",
+          "station": "S12",
+          "zone": "BODY",
+          "n_exposed": 1705,
+          "n_exp_defective": 237,
+          "rate_exposed": 0.139,
+          "rate_unexposed": 0.0247,
+          "lift": 5.63,
+          "p": 2.3368620994708898e-29,
+          "q": 4.486775230984108e-27,
+          "confidence": 0.981
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "S12:torque_nm low",
+        "n_exposed": 2009,
+        "n_still_in_line": 53,
+        "n_already_shipped": 1701,
+        "n_not_yet_started": 255,
+        "vins_sample_shipped": [
+          "VIN115680",
+          "VIN115681",
+          "VIN115682",
+          "VIN115687",
+          "VIN115691",
+          "VIN115693",
+          "VIN115694",
+          "VIN115696",
+          "VIN115701",
+          "VIN115704",
+          "VIN115712",
+          "VIN115713",
+          "VIN115715",
+          "VIN115716",
+          "VIN115717",
+          "VIN115719",
+          "VIN115720",
+          "VIN115721",
+          "VIN115723",
+          "VIN115724",
+          "VIN115726",
+          "VIN115727",
+          "VIN115728",
+          "VIN115729",
+          "VIN115733"
+        ]
+      },
+      "containment_sample_vins": [
+        "VIN118519",
+        "VIN118533",
+        "VIN118534",
+        "VIN118546",
+        "VIN118561",
+        "VIN118562",
+        "VIN118563",
+        "VIN118565",
+        "VIN118566",
+        "VIN118567",
+        "VIN118568",
+        "VIN118569"
+      ]
+    },
+    {
+      "defect_type": "PAINT_FINISH",
+      "gate": "S24",
+      "at_day": 17,
+      "true_fault": "F4",
+      "expected": [
+        "PAINT"
+      ],
+      "n_findings": 420,
+      "n_candidates_tested": 214,
+      "n_significant": 146,
+      "rank1_kind": "ZONE_ENVIRONMENT",
+      "rank1_label": "PAINT:booth_humidity_pct high",
+      "rank1_lift": 23.46,
+      "rank1_q": 2.3933499195900483e-70,
+      "rank1_confidence": 0.99,
+      "rank1_detail": "booth_humidity_pct high out of band across 4 stations in PAINT. Consistent with a zone-level cause (utility, air handling or material) rather than any single station.",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "ZONE_ENVIRONMENT",
+          "label": "PAINT:booth_humidity_pct high",
+          "detail": "booth_humidity_pct high out of band across 4 stations in PAINT. Consistent with a zone-level cause (utility, air handling or material) rather than any single station.",
+          "station": "",
+          "zone": "PAINT",
+          "n_exposed": 1850,
+          "n_exp_defective": 410,
+          "rate_exposed": 0.2217,
+          "rate_unexposed": 0.0095,
+          "lift": 23.46,
+          "p": 1.118387812892546e-72,
+          "q": 2.3933499195900483e-70,
+          "confidence": 0.99
+        },
+        {
+          "kind": "ZONE_ENVIRONMENT",
+          "label": "PAINT:booth_temp_c low",
+          "detail": "booth_temp_c low out of band across 4 stations in PAINT. Consistent with a zone-level cause (utility, air handling or material) rather than any single station.",
+          "station": "",
+          "zone": "PAINT",
+          "n_exposed": 232,
+          "n_exp_defective": 52,
+          "rate_exposed": 0.2239,
+          "rate_unexposed": 0.1389,
+          "lift": 1.61,
+          "p": 1.1144869187465349e-06,
+          "q": 2.592393484910418e-06,
+          "confidence": 0.468
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-435",
+          "detail": "consumed supplier lot LOT-435",
+          "station": "",
+          "zone": "",
+          "n_exposed": 420,
+          "n_exp_defective": 103,
+          "rate_exposed": 0.2452,
+          "rate_unexposed": 0.1289,
+          "lift": 1.9,
+          "p": 2.9728478838281565e-09,
+          "q": 7.664933098062958e-09,
+          "confidence": 0.423
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w2",
+          "detail": "elevated rate across 42 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 480,
+          "n_exp_defective": 120,
+          "rate_exposed": 0.25,
+          "rate_unexposed": 0.125,
+          "lift": 1.94,
+          "p": 1.8970448966040298e-11,
+          "q": 3.956893471732978e-10,
+          "confidence": 0.416
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-437",
+          "detail": "consumed supplier lot LOT-437",
+          "station": "",
+          "zone": "",
+          "n_exposed": 420,
+          "n_exp_defective": 102,
+          "rate_exposed": 0.2429,
+          "rate_unexposed": 0.1293,
+          "lift": 1.88,
+          "p": 6.574105758422493e-09,
+          "q": 1.5631762581137927e-08,
+          "confidence": 0.413
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w4",
+          "detail": "elevated rate across 42 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 480,
+          "n_exp_defective": 119,
+          "rate_exposed": 0.2479,
+          "rate_unexposed": 0.1254,
+          "lift": 1.89,
+          "p": 4.446899031993054e-11,
+          "q": 5.008612593929018e-10,
+          "confidence": 0.408
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "PAINT:booth_humidity_pct high",
+        "n_exposed": 1968,
+        "n_still_in_line": 4,
+        "n_already_shipped": 1925,
+        "n_not_yet_started": 39,
+        "vins_sample_shipped": [
+          "VIN113762",
+          "VIN113791",
+          "VIN113799",
+          "VIN113806",
+          "VIN113814",
+          "VIN113823",
+          "VIN113824",
+          "VIN113848",
+          "VIN113857",
+          "VIN113867",
+          "VIN113883",
+          "VIN113889",
+          "VIN113892",
+          "VIN113893",
+          "VIN113895",
+          "VIN113910",
+          "VIN113927",
+          "VIN113946",
+          "VIN113947",
+          "VIN113975",
+          "VIN113985",
+          "VIN113989",
+          "VIN113992",
+          "VIN113994",
+          "VIN114006"
+        ]
+      },
+      "containment_sample_vins": [
+        "VIN116647",
+        "VIN116658",
+        "VIN116661",
+        "VIN116665"
+      ]
+    },
+    {
+      "defect_type": "ELECTRICAL_FAULT",
+      "gate": "S42",
+      "at_day": 13,
+      "true_fault": "F3",
+      "expected": [
+        "LOT-425",
+        "S33:continuity_ohm"
+      ],
+      "n_findings": 160,
+      "n_candidates_tested": 102,
+      "n_significant": 50,
+      "rank1_kind": "STATION_SIGNAL",
+      "rank1_label": "S33:continuity_ohm high",
+      "rank1_lift": 19.03,
+      "rank1_q": 9.70656399821627e-73,
+      "rank1_confidence": 1.0,
+      "rank1_detail": "continuity_ohm more than 2.0sd high of the commissioning baseline at S33",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "S33:continuity_ohm high",
+          "detail": "continuity_ohm more than 2.0sd high of the commissioning baseline at S33",
+          "station": "S33",
+          "zone": "FINAL",
+          "n_exposed": 455,
+          "n_exp_defective": 125,
+          "rate_exposed": 0.2747,
+          "rate_unexposed": 0.0144,
+          "lift": 19.03,
+          "p": 1.9032478427875038e-74,
+          "q": 9.70656399821627e-73,
+          "confidence": 1.0
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-425",
+          "detail": "consumed supplier lot LOT-425",
+          "station": "",
+          "zone": "",
+          "n_exposed": 420,
+          "n_exp_defective": 122,
+          "rate_exposed": 0.2905,
+          "rate_unexposed": 0.0154,
+          "lift": 18.8,
+          "p": 4.995209260720997e-75,
+          "q": 5.0951134459354166e-73,
+          "confidence": 1.0
+        },
+        {
+          "kind": "SHIFT",
+          "label": "shift:11-A",
+          "detail": "built on day-shift 11-A",
+          "station": "",
+          "zone": "",
+          "n_exposed": 480,
+          "n_exp_defective": 103,
+          "rate_exposed": 0.2146,
+          "rate_unexposed": 0.0238,
+          "lift": 9.04,
+          "p": 9.501917559764945e-45,
+          "q": 2.1537679802133876e-44,
+          "confidence": 0.999
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:FINAL-OP4",
+          "detail": "worked by FINAL-OP4 in FINAL",
+          "station": "",
+          "zone": "FINAL",
+          "n_exposed": 1440,
+          "n_exp_defective": 138,
+          "rate_exposed": 0.0958,
+          "rate_unexposed": 0.0153,
+          "lift": 6.27,
+          "p": 4.2039014191099744e-23,
+          "q": 9.321694451069943e-23,
+          "confidence": 0.99
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:PAINT-OP4",
+          "detail": "worked by PAINT-OP4 in PAINT",
+          "station": "",
+          "zone": "PAINT",
+          "n_exposed": 960,
+          "n_exp_defective": 111,
+          "rate_exposed": 0.1156,
+          "rate_unexposed": 0.0255,
+          "lift": 4.53,
+          "p": 9.14859805942623e-22,
+          "q": 1.985440429918033e-21,
+          "confidence": 0.943
+        },
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "S33:insertion_force_n high",
+          "detail": "insertion_force_n more than 2.0sd high of the commissioning baseline at S33",
+          "station": "S33",
+          "zone": "FINAL",
+          "n_exposed": 243,
+          "n_exp_defective": 44,
+          "rate_exposed": 0.1811,
+          "rate_unexposed": 0.044,
+          "lift": 4.12,
+          "p": 1.4676916679029471e-13,
+          "q": 3.1188447942937627e-13,
+          "confidence": 0.915
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "S33:continuity_ohm high",
+        "n_exposed": 466,
+        "n_still_in_line": 0,
+        "n_already_shipped": 455,
+        "n_not_yet_started": 11,
+        "vins_sample_shipped": [
+          "VIN109923",
+          "VIN109934",
+          "VIN110079",
+          "VIN110153",
+          "VIN110156",
+          "VIN110170",
+          "VIN110193",
+          "VIN110210",
+          "VIN110255",
+          "VIN110303",
+          "VIN110325",
+          "VIN110378",
+          "VIN110484",
+          "VIN110500",
+          "VIN110501",
+          "VIN110502",
+          "VIN110503",
+          "VIN110504",
+          "VIN110505",
+          "VIN110506",
+          "VIN110507",
+          "VIN110508",
+          "VIN110509",
+          "VIN110510",
+          "VIN110511"
+        ]
+      },
+      "containment_sample_vins": []
+    },
+    {
+      "defect_type": "FIT_MISALIGN",
+      "gate": "S42",
+      "at_day": 18,
+      "true_fault": "F6",
+      "expected": [
+        "FINAL-OP2"
+      ],
+      "n_findings": 161,
+      "n_candidates_tested": 149,
+      "n_significant": 86,
+      "rank1_kind": "OPERATOR",
+      "rank1_label": "op:FINAL-OP2",
+      "rank1_lift": 25.96,
+      "rank1_q": 2.9040304951179155e-83,
+      "rank1_confidence": 1.0,
+      "rank1_detail": "worked by FINAL-OP2 in FINAL",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "OPERATOR",
+          "label": "op:FINAL-OP2",
+          "detail": "worked by FINAL-OP2 in FINAL",
+          "station": "",
+          "zone": "FINAL",
+          "n_exposed": 480,
+          "n_exp_defective": 135,
+          "rate_exposed": 0.2812,
+          "rate_unexposed": 0.0108,
+          "lift": 25.96,
+          "p": 3.89802751022539e-85,
+          "q": 2.9040304951179155e-83,
+          "confidence": 1.0
+        },
+        {
+          "kind": "SHIFT",
+          "label": "shift:15-B",
+          "detail": "built on day-shift 15-B",
+          "station": "",
+          "zone": "",
+          "n_exposed": 480,
+          "n_exp_defective": 135,
+          "rate_exposed": 0.2812,
+          "rate_unexposed": 0.0108,
+          "lift": 25.96,
+          "p": 3.89802751022539e-85,
+          "q": 2.9040304951179155e-83,
+          "confidence": 1.0
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:PAINT-OP3",
+          "detail": "worked by PAINT-OP3 in PAINT",
+          "station": "",
+          "zone": "PAINT",
+          "n_exposed": 960,
+          "n_exp_defective": 143,
+          "rate_exposed": 0.149,
+          "rate_unexposed": 0.0094,
+          "lift": 15.89,
+          "p": 1.658155449179679e-51,
+          "q": 1.9005012455982477e-50,
+          "confidence": 1.0
+        },
+        {
+          "kind": "ZONE_ENVIRONMENT",
+          "label": "PAINT:booth_humidity_pct high",
+          "detail": "booth_humidity_pct high out of band across 4 stations in PAINT. Consistent with a zone-level cause (utility, air handling or material) rather than any single station.",
+          "station": "",
+          "zone": "PAINT",
+          "n_exposed": 1535,
+          "n_exp_defective": 145,
+          "rate_exposed": 0.0948,
+          "rate_unexposed": 0.0115,
+          "lift": 8.23,
+          "p": 4.5350749748473246e-26,
+          "q": 1.4377152579835135e-25,
+          "confidence": 0.99
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-435",
+          "detail": "consumed supplier lot LOT-435",
+          "station": "",
+          "zone": "",
+          "n_exposed": 400,
+          "n_exp_defective": 77,
+          "rate_exposed": 0.1925,
+          "rate_unexposed": 0.0339,
+          "lift": 5.68,
+          "p": 5.711446529665513e-27,
+          "q": 1.8500120280873072e-26,
+          "confidence": 0.982
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:BODY-OP4",
+          "detail": "worked by BODY-OP4 in BODY",
+          "station": "",
+          "zone": "BODY",
+          "n_exposed": 2400,
+          "n_exp_defective": 155,
+          "rate_exposed": 0.0646,
+          "rate_unexposed": 0.0125,
+          "lift": 5.17,
+          "p": 1.7481175552791932e-07,
+          "q": 4.914519164841505e-07,
+          "confidence": 0.969
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "op:FINAL-OP2",
+        "n_exposed": 480,
+        "n_still_in_line": 0,
+        "n_already_shipped": 480,
+        "n_not_yet_started": 0,
+        "vins_sample_shipped": [
+          "VIN114880",
+          "VIN114881",
+          "VIN114882",
+          "VIN114883",
+          "VIN114884",
+          "VIN114885",
+          "VIN114886",
+          "VIN114887",
+          "VIN114888",
+          "VIN114889",
+          "VIN114890",
+          "VIN114891",
+          "VIN114892",
+          "VIN114893",
+          "VIN114894",
+          "VIN114895",
+          "VIN114896",
+          "VIN114897",
+          "VIN114898",
+          "VIN114899",
+          "VIN114900",
+          "VIN114901",
+          "VIN114902",
+          "VIN114903",
+          "VIN114904"
+        ]
+      },
+      "containment_sample_vins": []
+    }
+  ],
+  "backtrace_accuracy": 1.0,
+  "retrofit": {
+    "status": "skipped (--fast)"
+  },
+  "ledger": {
+    "scorecard": [
+      {
+        "kind": "DEFECT_RISK",
+        "issued": 65,
+        "surfaced": 49,
+        "suppressed_by_budget": 16,
+        "judged": 65,
+        "precision": 0.3846,
+        "mean_confidence": 0.2059,
+        "impact_flagged_inr": 5440296.0
+      },
+      {
+        "kind": "BOTTLENECK",
+        "issued": 17,
+        "surfaced": 17,
+        "suppressed_by_budget": 0,
+        "judged": 17,
+        "precision": 0.2353,
+        "mean_confidence": 0.6222,
+        "impact_flagged_inr": 10320000.0
+      },
+      {
+        "kind": "ROOT_CAUSE",
+        "issued": 4,
+        "surfaced": 4,
+        "suppressed_by_budget": 0,
+        "judged": 4,
+        "precision": 1.0,
+        "mean_confidence": 0.9928,
+        "impact_flagged_inr": 89320.0
+      },
+      {
+        "kind": "CONTAINMENT",
+        "issued": 2,
+        "surfaced": 2,
+        "suppressed_by_budget": 0,
+        "judged": 2,
+        "precision": 1.0,
+        "mean_confidence": 0.9855,
+        "impact_flagged_inr": 171957.6
+      }
+    ],
+    "calibration": [
+      {
+        "bin": "(-0.001, 0.2]",
+        "n": 42,
+        "mean_confidence": 0.04720285888948795,
+        "observed_precision": 0.047619047619047616,
+        "gap": 0.0
+      },
+      {
+        "bin": "(0.2, 0.4]",
+        "n": 12,
+        "mean_confidence": 0.3013154507861911,
+        "observed_precision": 0.75,
+        "gap": 0.449
+      },
+      {
+        "bin": "(0.4, 0.6]",
+        "n": 13,
+        "mean_confidence": 0.5210372852498567,
+        "observed_precision": 0.6923076923076923,
+        "gap": 0.171
+      },
+      {
+        "bin": "(0.6, 0.8]",
+        "n": 10,
+        "mean_confidence": 0.7129344684290844,
+        "observed_precision": 0.8,
+        "gap": 0.087
+      },
+      {
+        "bin": "(0.8, 1.0]",
+        "n": 11,
+        "mean_confidence": 0.945659090909091,
+        "observed_precision": 0.6363636363636364,
+        "gap": -0.309
+      }
+    ],
+    "human_feedback": {
+      "n_adjudicated": 4,
+      "confirmed": 4,
+      "rejected": 0,
+      "unsure": 0,
+      "confirm_rate": 1.0
+    },
+    "n_alerts": 88,
+    "n_surfaced": 72,
+    "alerts_per_shift_cap": 5,
+    "sample": [
+      {
+        "id": "A00014",
+        "kind": "BOTTLENECK",
+        "day": 16.0,
+        "target": "S28",
+        "message": "S28 forecast to constrain the next shift",
+        "confidence": 0.942,
+        "impact_inr": 1417143,
+        "surfaced": true,
+        "outcome": "incorrect"
+      },
+      {
+        "id": "A00015",
+        "kind": "BOTTLENECK",
+        "day": 17.0,
+        "target": "S28",
+        "message": "S28 forecast to constrain the next shift",
+        "confidence": 0.875,
+        "impact_inr": 1417143,
+        "surfaced": true,
+        "outcome": "incorrect"
+      },
+      {
+        "id": "A00084",
+        "kind": "CONTAINMENT",
+        "day": 19.0,
+        "target": "S12:torque_nm low",
+        "message": "53 units still in the line share this exposure",
+        "confidence": 0.981,
+        "impact_inr": 159890,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00082",
+        "kind": "DEFECT_RISK",
+        "day": 19.0,
+        "target": "FIT_MISALIGN",
+        "message": "480 units flagged for FIT_MISALIGN at S42",
+        "confidence": 0.806,
+        "impact_inr": 1297224,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00078",
+        "kind": "DEFECT_RISK",
+        "day": 14.0,
+        "target": "FIT_MISALIGN",
+        "message": "480 units flagged for FIT_MISALIGN at S42",
+        "confidence": 0.769,
+        "impact_inr": 1236888,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00013",
+        "kind": "BOTTLENECK",
+        "day": 15.0,
+        "target": "S28",
+        "message": "S28 forecast to constrain the next shift",
+        "confidence": 0.742,
+        "impact_inr": 1417143,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00010",
+        "kind": "BOTTLENECK",
+        "day": 12.0,
+        "target": "S28",
+        "message": "S28 forecast to constrain the next shift",
+        "confidence": 0.946,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "incorrect"
+      },
+      {
+        "id": "A00087",
+        "kind": "ROOT_CAUSE",
+        "day": 13.0,
+        "target": "S33:continuity_ohm high",
+        "message": "ELECTRICAL_FAULT traced to S33:continuity_ohm high (lift 19.03)",
+        "confidence": 1.0,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00088",
+        "kind": "ROOT_CAUSE",
+        "day": 18.0,
+        "target": "op:FINAL-OP2",
+        "message": "FIT_MISALIGN traced to op:FINAL-OP2 (lift 25.96)",
+        "confidence": 1.0,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00079",
+        "kind": "DEFECT_RISK",
+        "day": 15.5,
+        "target": "FIT_MISALIGN",
+        "message": "292 units flagged for FIT_MISALIGN at S42",
+        "confidence": 0.74,
+        "impact_inr": 724032,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00085",
+        "kind": "ROOT_CAUSE",
+        "day": 17.0,
+        "target": "PAINT:booth_humidity_pct high",
+        "message": "PAINT_FINISH traced to PAINT:booth_humidity_pct high (lift 23.46)",
+        "confidence": 0.99,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00083",
+        "kind": "ROOT_CAUSE",
+        "day": 19.0,
+        "target": "S12:torque_nm low",
+        "message": "LOOSE_FASTENER traced to S12:torque_nm low (lift 5.63)",
+        "confidence": 0.981,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00003",
+        "kind": "BOTTLENECK",
+        "day": 5.0,
+        "target": "S28",
+        "message": "S28 forecast to constrain the next shift",
+        "confidence": 0.891,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "incorrect"
+      },
+      {
+        "id": "A00064",
+        "kind": "DEFECT_RISK",
+        "day": 19.0,
+        "target": "LOOSE_FASTENER",
+        "message": "70 units flagged for LOOSE_FASTENER at S42",
+        "confidence": 0.771,
+        "impact_inr": 181008,
+        "surfaced": true,
+        "outcome": "correct"
+      }
+    ]
+  },
+  "economics": {
+    "scenarios": {
+      "conservative": {
+        "throughput_inr": 117442811.14835167,
+        "quality_inr": 16270651.995,
+        "rca_inr": 580580.0,
+        "total_inr": 134294043.14335167
+      },
+      "base": {
+        "throughput_inr": 200201872.17094144,
+        "quality_inr": 54235506.65,
+        "rca_inr": 580580.0,
+        "total_inr": 255017958.82094145
+      },
+      "optimistic": {
+        "throughput_inr": 265744018.40527514,
+        "quality_inr": 75929709.30999999,
+        "rca_inr": 580580.0,
+        "total_inr": 342254307.7152751
+      }
+    },
+    "assumptions": {
+      "contribution_margin_per_unit_inr": 62000,
+      "rework_cost_per_defect_inr": 4800,
+      "scrap_cost_per_defect_inr": 21000,
+      "warranty_cost_per_escape_inr": 34000,
+      "unplanned_downtime_cost_per_min_inr": 9400,
+      "engineer_hours_per_rca": 22,
+      "engineer_cost_per_hour_inr": 1450,
+      "annual_units": 240000,
+      "working_days": 250,
+      "bottleneck_gap_s": 1.36,
+      "gap_recovered_fraction": 0.6,
+      "defect_detection_rate": 0.2207,
+      "mean_flag_precision": 0.0775,
+      "mean_flag_recall": 0.2037,
+      "fraction_of_flags_acted_on": 0.5,
+      "rca_events_per_year": 26
+    },
+    "throughput_annual_inr": 200201872.17094144,
+    "quality_annual_inr": 54235506.65,
+    "rca_annual_inr": 580580.0,
+    "total_annual_inr": 255017958.82094145,
+    "defects_avoided_per_year": 5393.347916666667
+  },
+  "timing_ms": {
+    "simulate line": 1033.9,
+    "inject scanner faults": 27.3,
+    "detect + repair scan faults": 68.6,
+    "reconstruct machine states": 28.3,
+    "censored MLE, 13 dark stations": 62.3,
+    "SPC charts, all stations": 19.0,
+    "detect bottleneck, 2-day blocks": 1214.9,
+    "forecast eval, 17 triggers": 10648.4,
+    "build features (3 causal cutoffs)": 44.0,
+    "fit 6 conformal models": 1970.9,
+    "3 root-cause traces": 89.4
+  },
+  "timing_total_s": 15.2
+}

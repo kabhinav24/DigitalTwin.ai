@@ -1,0 +1,318 @@
+{
+  "summary": {
+    "mean": {
+      "seed": 20.0,
+      "n_reworked_units": 1428.3333,
+      "pct_units_out_of_sequence": 0.0744,
+      "start_mae_s": 0.2714,
+      "starved_mae_s": 113.2509,
+      "blocking_recall": 0.9988,
+      "blocking_precision": 0.7767,
+      "softsensor_median_pct_err": 0.0136,
+      "softsensor_max_pct_err": 0.8593,
+      "softsensor_ci_coverage": 0.9487,
+      "spc_station_fault_recall": 0.8889,
+      "spc_mean_lag_days": 2.7222,
+      "spc_onset_abs_error_days": 1.5556,
+      "spc_false_alarm_upper_bound": 0.3172,
+      "bn_top1_future": 0.4706,
+      "bn_top1_present": 0.4706,
+      "bn_top1_static": 0.4706,
+      "regime_first_day_future": 8.6667,
+      "regime_first_day_present": 11.6667,
+      "regime_lead_hours": 72.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "conformal_coverage_defect": 0.8497,
+      "conformal_coverage_min": 0.4844
+    },
+    "sd": {
+      "seed": 10.6145,
+      "n_reworked_units": 27.3537,
+      "pct_units_out_of_sequence": 0.0014,
+      "start_mae_s": 0.0003,
+      "starved_mae_s": 2.4273,
+      "blocking_recall": 0.0002,
+      "blocking_precision": 0.0068,
+      "softsensor_median_pct_err": 0.0009,
+      "softsensor_max_pct_err": 0.1768,
+      "softsensor_ci_coverage": 0.0363,
+      "spc_station_fault_recall": 0.1571,
+      "spc_mean_lag_days": 1.7285,
+      "spc_onset_abs_error_days": 0.4779,
+      "spc_false_alarm_upper_bound": 0.0612,
+      "bn_top1_future": 0.048,
+      "bn_top1_present": 0.048,
+      "bn_top1_static": 0.0961,
+      "regime_first_day_future": 4.1899,
+      "regime_first_day_present": 1.2472,
+      "regime_lead_hours": 101.8234,
+      "backtrace_rank1_hit_rate": 0.0,
+      "backtrace_top3_hit_rate": 0.0,
+      "conformal_coverage_defect": 0.0227,
+      "conformal_coverage_min": 0.0662
+    },
+    "min": {
+      "seed": 7.0,
+      "n_reworked_units": 1395.0,
+      "pct_units_out_of_sequence": 0.0727,
+      "start_mae_s": 0.271,
+      "starved_mae_s": 110.5723,
+      "blocking_recall": 0.9986,
+      "blocking_precision": 0.7685,
+      "softsensor_median_pct_err": 0.0128,
+      "softsensor_max_pct_err": 0.646,
+      "softsensor_ci_coverage": 0.9231,
+      "spc_station_fault_recall": 0.6667,
+      "spc_mean_lag_days": 1.5,
+      "spc_onset_abs_error_days": 1.0,
+      "spc_false_alarm_upper_bound": 0.2661,
+      "bn_top1_future": 0.4118,
+      "bn_top1_present": 0.4118,
+      "bn_top1_static": 0.3529,
+      "regime_first_day_future": 3.0,
+      "regime_first_day_present": 10.0,
+      "regime_lead_hours": 0.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "conformal_coverage_defect": 0.8204,
+      "conformal_coverage_min": 0.3955
+    },
+    "max": {
+      "seed": 33.0,
+      "n_reworked_units": 1462.0,
+      "pct_units_out_of_sequence": 0.0761,
+      "start_mae_s": 0.2717,
+      "starved_mae_s": 116.4493,
+      "blocking_recall": 0.999,
+      "blocking_precision": 0.7851,
+      "softsensor_median_pct_err": 0.0149,
+      "softsensor_max_pct_err": 1.079,
+      "softsensor_ci_coverage": 1.0,
+      "spc_station_fault_recall": 1.0,
+      "spc_mean_lag_days": 5.1667,
+      "spc_onset_abs_error_days": 2.1667,
+      "spc_false_alarm_upper_bound": 0.4032,
+      "bn_top1_future": 0.5294,
+      "bn_top1_present": 0.5294,
+      "bn_top1_static": 0.5882,
+      "regime_first_day_future": 13.0,
+      "regime_first_day_present": 13.0,
+      "regime_lead_hours": 216.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "conformal_coverage_defect": 0.8758,
+      "conformal_coverage_min": 0.5542
+    }
+  },
+  "runs": [
+    {
+      "seed": 7,
+      "n_reworked_units": 1462,
+      "pct_units_out_of_sequence": 0.0761,
+      "start_mae_s": 0.27165055960225615,
+      "starved_mae_s": 116.44929711601115,
+      "blocking_recall": 0.9986197377501725,
+      "blocking_precision": 0.7765599521126179,
+      "softsensor_median_pct_err": 0.012847218926356445,
+      "softsensor_max_pct_err": 1.0789812888245633,
+      "softsensor_ci_coverage": 0.9230769230769231,
+      "spc_station_fault_recall": 1.0,
+      "spc_mean_lag_days": 5.166666666666667,
+      "spc_onset_abs_error_days": 2.1666666666666665,
+      "spc_false_alarm_upper_bound": 0.28225806451612906,
+      "bn_top1_future": 0.5294117647058824,
+      "bn_top1_present": 0.47058823529411764,
+      "bn_top1_static": 0.47058823529411764,
+      "regime_first_day_future": 3.0,
+      "regime_first_day_present": 12.0,
+      "regime_lead_hours": 216.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "backtrace_detail": [
+        {
+          "defect": "LOOSE_FASTENER",
+          "accept": [
+            "S12"
+          ],
+          "got": "S12:torque_nm low",
+          "lift": 5.63,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "PAINT_FINISH",
+          "accept": [
+            "PAINT"
+          ],
+          "got": "PAINT:booth_humidity_pct high",
+          "lift": 23.46,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "ELECTRICAL_FAULT",
+          "accept": [
+            "LOT-425",
+            "S33:continuity_ohm"
+          ],
+          "got": "S33:continuity_ohm high",
+          "lift": 19.03,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "FIT_MISALIGN",
+          "accept": [
+            "FINAL-OP2"
+          ],
+          "got": "op:FINAL-OP2",
+          "lift": 25.96,
+          "rank1_hit": true,
+          "top3_hit": true
+        }
+      ],
+      "conformal_coverage_defect": 0.8527577456858949,
+      "conformal_coverage_min": 0.5034722222222222
+    },
+    {
+      "seed": 20,
+      "n_reworked_units": 1428,
+      "pct_units_out_of_sequence": 0.0744,
+      "start_mae_s": 0.27155006127182363,
+      "starved_mae_s": 112.73121240059304,
+      "blocking_recall": 0.9988137946996876,
+      "blocking_precision": 0.7684756477606625,
+      "softsensor_median_pct_err": 0.013124438139068518,
+      "softsensor_max_pct_err": 0.6460017609224723,
+      "softsensor_ci_coverage": 1.0,
+      "spc_station_fault_recall": 1.0,
+      "spc_mean_lag_days": 1.5,
+      "spc_onset_abs_error_days": 1.5,
+      "spc_false_alarm_upper_bound": 0.4032258064516129,
+      "bn_top1_future": 0.4117647058823529,
+      "bn_top1_present": 0.4117647058823529,
+      "bn_top1_static": 0.35294117647058826,
+      "regime_first_day_future": 13.0,
+      "regime_first_day_present": 13.0,
+      "regime_lead_hours": 0.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "backtrace_detail": [
+        {
+          "defect": "LOOSE_FASTENER",
+          "accept": [
+            "S12"
+          ],
+          "got": "S12:torque_nm low",
+          "lift": 9.23,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "PAINT_FINISH",
+          "accept": [
+            "PAINT"
+          ],
+          "got": "PAINT:booth_humidity_pct high",
+          "lift": 17.12,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "ELECTRICAL_FAULT",
+          "accept": [
+            "LOT-425",
+            "S33:continuity_ohm"
+          ],
+          "got": "lot:LOT-425",
+          "lift": 22.26,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "FIT_MISALIGN",
+          "accept": [
+            "FINAL-OP2"
+          ],
+          "got": "op:FINAL-OP2",
+          "lift": 21.32,
+          "rank1_hit": true,
+          "top3_hit": true
+        }
+      ],
+      "conformal_coverage_defect": 0.8204343804358881,
+      "conformal_coverage_min": 0.39546243686868693
+    },
+    {
+      "seed": 33,
+      "n_reworked_units": 1395,
+      "pct_units_out_of_sequence": 0.0727,
+      "start_mae_s": 0.271019760450376,
+      "starved_mae_s": 110.57227106662383,
+      "blocking_recall": 0.9989957534718237,
+      "blocking_precision": 0.7851215442204483,
+      "softsensor_median_pct_err": 0.014920199156621473,
+      "softsensor_max_pct_err": 0.8530120631085688,
+      "softsensor_ci_coverage": 0.9230769230769231,
+      "spc_station_fault_recall": 0.6666666666666666,
+      "spc_mean_lag_days": 1.5,
+      "spc_onset_abs_error_days": 1.0,
+      "spc_false_alarm_upper_bound": 0.2661290322580645,
+      "bn_top1_future": 0.47058823529411764,
+      "bn_top1_present": 0.5294117647058824,
+      "bn_top1_static": 0.5882352941176471,
+      "regime_first_day_future": 10.0,
+      "regime_first_day_present": 10.0,
+      "regime_lead_hours": 0.0,
+      "backtrace_rank1_hit_rate": 1.0,
+      "backtrace_top3_hit_rate": 1.0,
+      "backtrace_detail": [
+        {
+          "defect": "LOOSE_FASTENER",
+          "accept": [
+            "S12"
+          ],
+          "got": "S12:torque_nm low",
+          "lift": 6.5,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "PAINT_FINISH",
+          "accept": [
+            "PAINT"
+          ],
+          "got": "PAINT:booth_humidity_pct high",
+          "lift": 37.22,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "ELECTRICAL_FAULT",
+          "accept": [
+            "LOT-425",
+            "S33:continuity_ohm"
+          ],
+          "got": "S33:continuity_ohm high",
+          "lift": 22.3,
+          "rank1_hit": true,
+          "top3_hit": true
+        },
+        {
+          "defect": "FIT_MISALIGN",
+          "accept": [
+            "FINAL-OP2"
+          ],
+          "got": "op:FINAL-OP2",
+          "lift": 20.71,
+          "rank1_hit": true,
+          "top3_hit": true
+        }
+      ],
+      "conformal_coverage_defect": 0.8758426339551569,
+      "conformal_coverage_min": 0.5541787318066517
+    }
+  ],
+  "failures": []
+}

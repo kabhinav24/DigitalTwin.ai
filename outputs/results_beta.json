@@ -1,0 +1,1874 @@
+{
+  "meta": {
+    "days": 20,
+    "seed": 7,
+    "line": "beta",
+    "faults": "default"
+  },
+  "line": {
+    "name": "Plant Beta / Line 1",
+    "parallel_stations": [],
+    "rework_gates": [],
+    "n_reworked_units": 0,
+    "n_stations": 28,
+    "sensor_coverage": 0.571,
+    "dark_stations": [
+      "B02",
+      "B04",
+      "B05",
+      "B07",
+      "B09",
+      "B11",
+      "B14",
+      "B16",
+      "B19",
+      "B22",
+      "B25",
+      "B27"
+    ],
+    "takt_s": 72.0,
+    "n_units": 8000,
+    "units_per_day": 400,
+    "days": 20,
+    "zones": [
+      "BODY",
+      "FINAL"
+    ]
+  },
+  "faults": [
+    {
+      "fault_id": "F1",
+      "kind": "PARAM_DRIFT",
+      "target": "B17",
+      "start_day": 8.0,
+      "end_day": 20.0,
+      "magnitude": 0.32,
+      "defect_type": "LOOSE_FASTENER",
+      "note": "Torque tool drift in final assembly."
+    },
+    {
+      "fault_id": "F2",
+      "kind": "CYCLE_DEGRADE",
+      "target": "B14",
+      "start_day": 5.0,
+      "end_day": 20.0,
+      "magnitude": 0.008,
+      "defect_type": null,
+      "note": "Un-instrumented manual station degrades 0.80%/day."
+    },
+    {
+      "fault_id": "F3",
+      "kind": "LOT_CONTAM",
+      "target": "LOT-418",
+      "start_day": 0.0,
+      "end_day": 99.0,
+      "magnitude": 5.8,
+      "defect_type": "ELECTRICAL_FAULT",
+      "note": "Contaminated connector lot."
+    },
+    {
+      "fault_id": "F6",
+      "kind": "OPERATOR_VAR",
+      "target": "FINAL-OP2",
+      "start_day": 0.0,
+      "end_day": 99.0,
+      "magnitude": 1.55,
+      "defect_type": "FIT_MISALIGN",
+      "note": "Operator variation on manual fits.",
+      "n_units_affected": 2400
+    },
+    {
+      "fault_id": "F5",
+      "kind": "MICROSTOP",
+      "target": "B03",
+      "start_day": 3.0,
+      "end_day": 20.0,
+      "magnitude": 0.012,
+      "defect_type": null,
+      "note": "Intermittent micro-stoppages on an instrumented robot.",
+      "n_events": 86
+    }
+  ],
+  "data_quality": {
+    "mode": "dirty scans, repaired",
+    "injected": {
+      "n_missed": 3194,
+      "n_duplicate": 977,
+      "n_late": 1954
+    },
+    "repair": {
+      "missed_injected": 3194,
+      "missed_detected": 3194,
+      "missed_detection_rate": 1.0,
+      "duplicates_injected": 977,
+      "duplicates_corrected": 0,
+      "late_injected": 1954,
+      "drift_readers_flagged": 1
+    },
+    "overall_quality": 0.898,
+    "notes": [
+      "3194 missed reads imputed; affected stations carry a reduced confidence downstream",
+      "1054 late scans pulled back to a feasible gap",
+      "clock drift suspected at 1 readers; these are flagged, not corrected - check NTP sync"
+    ],
+    "per_station": [
+      {
+        "sid": "B01",
+        "instrumented": true,
+        "missing_rate": 0.0,
+        "imputed_rate": 0.0,
+        "clock_drift_observed_s": 0.0,
+        "clock_drift_flag": false,
+        "quality": 1.0
+      },
+      {
+        "sid": "B02",
+        "instrumented": false,
+        "missing_rate": 0.0148,
+        "imputed_rate": 0.0148,
+        "clock_drift_observed_s": -0.2635,
+        "clock_drift_flag": false,
+        "quality": 0.9115
+      },
+      {
+        "sid": "B03",
+        "instrumented": true,
+        "missing_rate": 0.013,
+        "imputed_rate": 0.013,
+        "clock_drift_observed_s": 0.8798,
+        "clock_drift_flag": false,
+        "quality": 0.922
+      },
+      {
+        "sid": "B04",
+        "instrumented": false,
+        "missing_rate": 0.0158,
+        "imputed_rate": 0.0158,
+        "clock_drift_observed_s": 0.6241,
+        "clock_drift_flag": false,
+        "quality": 0.9055
+      },
+      {
+        "sid": "B05",
+        "instrumented": false,
+        "missing_rate": 0.0165,
+        "imputed_rate": 0.0165,
+        "clock_drift_observed_s": -1.0991,
+        "clock_drift_flag": false,
+        "quality": 0.901
+      },
+      {
+        "sid": "B06",
+        "instrumented": true,
+        "missing_rate": 0.0169,
+        "imputed_rate": 0.0169,
+        "clock_drift_observed_s": 0.4188,
+        "clock_drift_flag": false,
+        "quality": 0.8987
+      },
+      {
+        "sid": "B07",
+        "instrumented": false,
+        "missing_rate": 0.0134,
+        "imputed_rate": 0.0134,
+        "clock_drift_observed_s": 0.4163,
+        "clock_drift_flag": false,
+        "quality": 0.9197
+      },
+      {
+        "sid": "B08",
+        "instrumented": true,
+        "missing_rate": 0.0156,
+        "imputed_rate": 0.0156,
+        "clock_drift_observed_s": 0.3511,
+        "clock_drift_flag": false,
+        "quality": 0.9062
+      },
+      {
+        "sid": "B09",
+        "instrumented": false,
+        "missing_rate": 0.0138,
+        "imputed_rate": 0.0138,
+        "clock_drift_observed_s": -0.0313,
+        "clock_drift_flag": false,
+        "quality": 0.9175
+      },
+      {
+        "sid": "B10",
+        "instrumented": true,
+        "missing_rate": 0.0129,
+        "imputed_rate": 0.0129,
+        "clock_drift_observed_s": 0.3476,
+        "clock_drift_flag": false,
+        "quality": 0.9227
+      },
+      {
+        "sid": "B11",
+        "instrumented": false,
+        "missing_rate": 0.0146,
+        "imputed_rate": 0.0146,
+        "clock_drift_observed_s": 0.645,
+        "clock_drift_flag": false,
+        "quality": 0.9123
+      },
+      {
+        "sid": "B12",
+        "instrumented": true,
+        "missing_rate": 0.0159,
+        "imputed_rate": 0.0159,
+        "clock_drift_observed_s": -0.8942,
+        "clock_drift_flag": false,
+        "quality": 0.9047
+      },
+      {
+        "sid": "B13",
+        "instrumented": true,
+        "missing_rate": 0.0138,
+        "imputed_rate": 0.0138,
+        "clock_drift_observed_s": 0.6158,
+        "clock_drift_flag": false,
+        "quality": 0.9175
+      },
+      {
+        "sid": "B14",
+        "instrumented": false,
+        "missing_rate": 0.0132,
+        "imputed_rate": 0.0132,
+        "clock_drift_observed_s": 4.6464,
+        "clock_drift_flag": true,
+        "quality": 0.4602
+      },
+      {
+        "sid": "B15",
+        "instrumented": true,
+        "missing_rate": 0.014,
+        "imputed_rate": 0.014,
+        "clock_drift_observed_s": 0.3867,
+        "clock_drift_flag": false,
+        "quality": 0.916
+      },
+      {
+        "sid": "B16",
+        "instrumented": false,
+        "missing_rate": 0.0146,
+        "imputed_rate": 0.0146,
+        "clock_drift_observed_s": -0.6238,
+        "clock_drift_flag": false,
+        "quality": 0.9123
+      },
+      {
+        "sid": "B17",
+        "instrumented": true,
+        "missing_rate": 0.0134,
+        "imputed_rate": 0.0134,
+        "clock_drift_observed_s": -0.1629,
+        "clock_drift_flag": false,
+        "quality": 0.9197
+      },
+      {
+        "sid": "B18",
+        "instrumented": true,
+        "missing_rate": 0.0186,
+        "imputed_rate": 0.0186,
+        "clock_drift_observed_s": 0.4589,
+        "clock_drift_flag": false,
+        "quality": 0.8882
+      },
+      {
+        "sid": "B19",
+        "instrumented": false,
+        "missing_rate": 0.0136,
+        "imputed_rate": 0.0136,
+        "clock_drift_observed_s": 0.1605,
+        "clock_drift_flag": false,
+        "quality": 0.9183
+      },
+      {
+        "sid": "B20",
+        "instrumented": true,
+        "missing_rate": 0.0149,
+        "imputed_rate": 0.0149,
+        "clock_drift_observed_s": -0.6795,
+        "clock_drift_flag": false,
+        "quality": 0.9107
+      },
+      {
+        "sid": "B21",
+        "instrumented": true,
+        "missing_rate": 0.0139,
+        "imputed_rate": 0.0139,
+        "clock_drift_observed_s": 0.0101,
+        "clock_drift_flag": false,
+        "quality": 0.9167
+      },
+      {
+        "sid": "B22",
+        "instrumented": false,
+        "missing_rate": 0.0134,
+        "imputed_rate": 0.0134,
+        "clock_drift_observed_s": 0.1742,
+        "clock_drift_flag": false,
+        "quality": 0.9197
+      },
+      {
+        "sid": "B23",
+        "instrumented": true,
+        "missing_rate": 0.0162,
+        "imputed_rate": 0.0162,
+        "clock_drift_observed_s": 1.1603,
+        "clock_drift_flag": false,
+        "quality": 0.9025
+      },
+      {
+        "sid": "B24",
+        "instrumented": true,
+        "missing_rate": 0.0161,
+        "imputed_rate": 0.0161,
+        "clock_drift_observed_s": -0.5734,
+        "clock_drift_flag": false,
+        "quality": 0.9032
+      },
+      {
+        "sid": "B25",
+        "instrumented": false,
+        "missing_rate": 0.0142,
+        "imputed_rate": 0.0142,
+        "clock_drift_observed_s": -0.8269,
+        "clock_drift_flag": false,
+        "quality": 0.9145
+      },
+      {
+        "sid": "B26",
+        "instrumented": true,
+        "missing_rate": 0.0159,
+        "imputed_rate": 0.0159,
+        "clock_drift_observed_s": 0.4546,
+        "clock_drift_flag": false,
+        "quality": 0.9047
+      },
+      {
+        "sid": "B27",
+        "instrumented": false,
+        "missing_rate": 0.0156,
+        "imputed_rate": 0.0156,
+        "clock_drift_observed_s": 1.0838,
+        "clock_drift_flag": false,
+        "quality": 0.9062
+      },
+      {
+        "sid": "B28",
+        "instrumented": true,
+        "missing_rate": 0.0148,
+        "imputed_rate": 0.0148,
+        "clock_drift_observed_s": -0.1499,
+        "clock_drift_flag": false,
+        "quality": 0.9115
+      }
+    ]
+  },
+  "state_reconstruction": {
+    "start_mae_s": 0.4751946842622712,
+    "starved_mae_s": 0.5609073876245098,
+    "blocked_precision": 0.7348066298342542,
+    "blocked_recall": 0.9602888086642599,
+    "graph_schema_nodes": 11,
+    "graph_schema_edges": 11
+  },
+  "soft_sensor_confidence_adjustment": {
+    "mean_confidence_before": 0.9864,
+    "mean_confidence_after": 0.8857,
+    "note": "soft-sensor confidence is multiplied by the data-quality score of that station's scan feed, so an estimate built on imputed reads is never presented as if it were clean"
+  },
+  "soft_sensors": {
+    "window_days": [
+      16.0,
+      20.0
+    ],
+    "median_abs_pct_err": 0.1373575372956755,
+    "max_abs_pct_err": 0.4745449101101949,
+    "ci95_coverage": 1.0,
+    "n_censored_mle": 1,
+    "table": [
+      {
+        "sid": "B02",
+        "type": "manual_fit",
+        "true_mean_s": 55.4399,
+        "est_mean_s": 55.703,
+        "abs_err_s": 0.2631,
+        "pct_err": 0.4745,
+        "in_95ci": true,
+        "method": "censored-mle",
+        "confidence": 0.98
+      },
+      {
+        "sid": "B04",
+        "type": "manual_fit",
+        "true_mean_s": 55.181,
+        "est_mean_s": 55.278,
+        "abs_err_s": 0.097,
+        "pct_err": 0.1757,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B05",
+        "type": "sealer",
+        "true_mean_s": 50.0197,
+        "est_mean_s": 49.86,
+        "abs_err_s": 0.1597,
+        "pct_err": 0.3193,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B07",
+        "type": "manual_fit",
+        "true_mean_s": 57.9696,
+        "est_mean_s": 57.9331,
+        "abs_err_s": 0.0365,
+        "pct_err": 0.063,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B09",
+        "type": "manual_fit",
+        "true_mean_s": 53.5859,
+        "est_mean_s": 53.5182,
+        "abs_err_s": 0.0677,
+        "pct_err": 0.1264,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B11",
+        "type": "manual_fit",
+        "true_mean_s": 57.885,
+        "est_mean_s": 57.9612,
+        "abs_err_s": 0.0762,
+        "pct_err": 0.1316,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B14",
+        "type": "manual_fit",
+        "true_mean_s": 67.4042,
+        "est_mean_s": 67.3641,
+        "abs_err_s": 0.0401,
+        "pct_err": 0.0595,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B16",
+        "type": "manual_fit",
+        "true_mean_s": 56.6864,
+        "est_mean_s": 56.8962,
+        "abs_err_s": 0.2098,
+        "pct_err": 0.3701,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B19",
+        "type": "manual_fit",
+        "true_mean_s": 56.3795,
+        "est_mean_s": 56.5081,
+        "abs_err_s": 0.1286,
+        "pct_err": 0.2282,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B22",
+        "type": "manual_fit",
+        "true_mean_s": 54.7793,
+        "est_mean_s": 54.846,
+        "abs_err_s": 0.0667,
+        "pct_err": 0.1218,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B25",
+        "type": "manual_fit",
+        "true_mean_s": 57.2844,
+        "est_mean_s": 57.3437,
+        "abs_err_s": 0.0593,
+        "pct_err": 0.1035,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      },
+      {
+        "sid": "B27",
+        "type": "manual_fit",
+        "true_mean_s": 58.6866,
+        "est_mean_s": 58.6026,
+        "abs_err_s": 0.084,
+        "pct_err": 0.1432,
+        "in_95ci": true,
+        "method": "direct",
+        "confidence": 0.99
+      }
+    ]
+  },
+  "spc": {
+    "n_charts": 168,
+    "n_dark_charts": 48,
+    "station_faults_detected": 1,
+    "station_faults_total": 3,
+    "mean_lag_days": 2.0,
+    "mean_onset_error_days": 1.0,
+    "false_alarm": {
+      "clean_stations": 15,
+      "clean_station_charts": 92,
+      "charts_firing": 18,
+      "false_alarm_rate_upper_bound": 0.1956521739130435,
+      "by_chart": {
+        "CUSUM": 0.196,
+        "EWMA": 0.196
+      }
+    },
+    "operating_point": {
+      "ewma_L": 5.5,
+      "cusum_h": 9.35,
+      "persistence_blocks": 2
+    },
+    "table": [
+      {
+        "fault_id": "F1",
+        "kind": "PARAM_DRIFT",
+        "target": "B17",
+        "start_day": 8.0,
+        "detected": true,
+        "chart": "EWMA",
+        "signal": "torque_nm",
+        "detect_day": 10.0,
+        "lag_days": 2.0,
+        "onset_estimate_day": 7.0,
+        "onset_error_days": -1.0
+      },
+      {
+        "fault_id": "F2",
+        "kind": "CYCLE_DEGRADE",
+        "target": "B14",
+        "start_day": 5.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F3",
+        "kind": "LOT_CONTAM",
+        "target": "LOT-418",
+        "start_day": 0.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F6",
+        "kind": "OPERATOR_VAR",
+        "target": "FINAL-OP2",
+        "start_day": 0.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      },
+      {
+        "fault_id": "F5",
+        "kind": "MICROSTOP",
+        "target": "B03",
+        "start_day": 3.0,
+        "detected": false,
+        "chart": NaN,
+        "signal": NaN,
+        "detect_day": NaN,
+        "lag_days": NaN,
+        "onset_estimate_day": NaN,
+        "onset_error_days": NaN
+      }
+    ]
+  },
+  "bottleneck_timeline": [
+    {
+      "day_from": 0,
+      "day_to": 1,
+      "top": "B14",
+      "share": 0.114,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.076
+        },
+        {
+          "sid": "B27",
+          "share": 0.069
+        },
+        {
+          "sid": "B24",
+          "share": 0.041
+        }
+      ]
+    },
+    {
+      "day_from": 2,
+      "day_to": 3,
+      "top": "B14",
+      "share": 0.146,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B27",
+          "share": 0.076
+        },
+        {
+          "sid": "B20",
+          "share": 0.073
+        },
+        {
+          "sid": "B11",
+          "share": 0.035
+        }
+      ]
+    },
+    {
+      "day_from": 4,
+      "day_to": 5,
+      "top": "B14",
+      "share": 0.085,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.083
+        },
+        {
+          "sid": "B07",
+          "share": 0.057
+        },
+        {
+          "sid": "B03",
+          "share": 0.045
+        }
+      ]
+    },
+    {
+      "day_from": 6,
+      "day_to": 7,
+      "top": "B14",
+      "share": 0.137,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B07",
+          "share": 0.063
+        },
+        {
+          "sid": "B27",
+          "share": 0.061
+        },
+        {
+          "sid": "B20",
+          "share": 0.052
+        }
+      ]
+    },
+    {
+      "day_from": 8,
+      "day_to": 9,
+      "top": "B14",
+      "share": 0.15,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.084
+        },
+        {
+          "sid": "B07",
+          "share": 0.044
+        },
+        {
+          "sid": "B27",
+          "share": 0.041
+        }
+      ]
+    },
+    {
+      "day_from": 10,
+      "day_to": 11,
+      "top": "B14",
+      "share": 0.228,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B25",
+          "share": 0.037
+        },
+        {
+          "sid": "B27",
+          "share": 0.036
+        },
+        {
+          "sid": "B07",
+          "share": 0.035
+        }
+      ]
+    },
+    {
+      "day_from": 12,
+      "day_to": 13,
+      "top": "B14",
+      "share": 0.188,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.06
+        },
+        {
+          "sid": "B07",
+          "share": 0.041
+        },
+        {
+          "sid": "B24",
+          "share": 0.04
+        }
+      ]
+    },
+    {
+      "day_from": 14,
+      "day_to": 15,
+      "top": "B14",
+      "share": 0.265,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.045
+        },
+        {
+          "sid": "B07",
+          "share": 0.038
+        },
+        {
+          "sid": "B04",
+          "share": 0.029
+        }
+      ]
+    },
+    {
+      "day_from": 16,
+      "day_to": 17,
+      "top": "B14",
+      "share": 0.247,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B20",
+          "share": 0.055
+        },
+        {
+          "sid": "B07",
+          "share": 0.042
+        },
+        {
+          "sid": "B24",
+          "share": 0.027
+        }
+      ]
+    },
+    {
+      "day_from": 18,
+      "day_to": 19,
+      "top": "B14",
+      "share": 0.433,
+      "instrumented": false,
+      "runners": [
+        {
+          "sid": "B11",
+          "share": 0.024
+        },
+        {
+          "sid": "B27",
+          "share": 0.02
+        },
+        {
+          "sid": "B25",
+          "share": 0.011
+        }
+      ]
+    }
+  ],
+  "bottleneck_forecast": {
+    "n_triggers": 7,
+    "horizon_units": 480,
+    "top1_future": 0.8571428571428571,
+    "top1_present": 0.8571428571428571,
+    "top1_static": 0.8571428571428571,
+    "top2_future": 0.8571428571428571,
+    "top2_present": 0.8571428571428571,
+    "mean_runtime_ms": 268.4428571428571,
+    "regime_change_lead": {
+      "station": "S28",
+      "first_day_future": null,
+      "first_day_present": null,
+      "first_day_static": null,
+      "lead_shifts": null,
+      "lead_hours": null
+    },
+    "table": [
+      {
+        "trigger_unit": 1200,
+        "day": 3.0,
+        "actual": "B14",
+        "predicted": "B20",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": false,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": false,
+        "present_in_top2": true,
+        "confidence": 0.473,
+        "runtime_ms": 191.6
+      },
+      {
+        "trigger_unit": 2160,
+        "day": 5.13,
+        "actual": "B20",
+        "predicted": "B20",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": false,
+        "static_correct": false,
+        "pred_in_top2": true,
+        "present_in_top2": false,
+        "confidence": 0.278,
+        "runtime_ms": 233.6
+      },
+      {
+        "trigger_unit": 3120,
+        "day": 7.27,
+        "actual": "B14",
+        "predicted": "B14",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.754,
+        "runtime_ms": 259.7
+      },
+      {
+        "trigger_unit": 4080,
+        "day": 10.07,
+        "actual": "B14",
+        "predicted": "B14",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.626,
+        "runtime_ms": 273.4
+      },
+      {
+        "trigger_unit": 5040,
+        "day": 12.2,
+        "actual": "B14",
+        "predicted": "B14",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.54,
+        "runtime_ms": 285.9
+      },
+      {
+        "trigger_unit": 6000,
+        "day": 15.0,
+        "actual": "B14",
+        "predicted": "B14",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.633,
+        "runtime_ms": 305.1
+      },
+      {
+        "trigger_unit": 6960,
+        "day": 17.13,
+        "actual": "B14",
+        "predicted": "B14",
+        "present": "B14",
+        "static": "B14",
+        "pred_correct": true,
+        "present_correct": true,
+        "static_correct": true,
+        "pred_in_top2": true,
+        "present_in_top2": true,
+        "confidence": 0.67,
+        "runtime_ms": 329.8
+      }
+    ]
+  },
+  "defect_models": [
+    {
+      "defect_type": "WELD_POROSITY",
+      "gate": "B10",
+      "status": "unmodelled",
+      "reason": "only 32 training positives"
+    },
+    {
+      "defect_type": "SEALANT_VOID",
+      "gate": "B10",
+      "status": "unmodelled",
+      "reason": "only 51 training positives"
+    },
+    {
+      "defect_type": "PAINT_FINISH",
+      "gate": null,
+      "status": "unmodelled",
+      "reason": "no gate on this line inspects for it"
+    },
+    {
+      "defect_type": "LOOSE_FASTENER",
+      "gate": "B28",
+      "status": "fitted",
+      "n_features": 68,
+      "n_positive": 337,
+      "roc_auc": 0.652,
+      "pr_auc": 0.179,
+      "prequential_roc_auc": 0.715,
+      "prequential_pr_auc": 0.16,
+      "coverage_defect": 0.979,
+      "coverage_ok": 0.772,
+      "target_coverage": 0.9,
+      "flag_precision": 0.161,
+      "flag_recall": 0.472,
+      "abstain_rate": 0.606
+    },
+    {
+      "defect_type": "ELECTRICAL_FAULT",
+      "gate": "B28",
+      "status": "fitted",
+      "n_features": 68,
+      "n_positive": 173,
+      "roc_auc": 0.583,
+      "pr_auc": 0.019,
+      "prequential_roc_auc": 0.834,
+      "prequential_pr_auc": 0.202,
+      "coverage_defect": 0.43,
+      "coverage_ok": 0.94,
+      "target_coverage": 0.9,
+      "flag_precision": 0.1,
+      "flag_recall": 0.312,
+      "abstain_rate": 0.122
+    },
+    {
+      "defect_type": "FIT_MISALIGN",
+      "gate": "B28",
+      "status": "unmodelled",
+      "reason": "only 503 training positives"
+    }
+  ],
+  "defect_blocks": {
+    "LOOSE_FASTENER": [
+      {
+        "block_start": 5600,
+        "n": 480,
+        "prevalence": 0.0354,
+        "cov_defect": 1.0,
+        "cov_ok": 0.7538,
+        "flag_rate": 0.2625,
+        "flag_precision": 0.0952,
+        "flag_recall": 0.7059,
+        "abstain_rate": 0.7229,
+        "day": 14.0
+      },
+      {
+        "block_start": 6080,
+        "n": 480,
+        "prevalence": 0.0562,
+        "cov_defect": 0.963,
+        "cov_ok": 0.7638,
+        "flag_rate": 0.2583,
+        "flag_precision": 0.1371,
+        "flag_recall": 0.6296,
+        "abstain_rate": 0.5667,
+        "day": 15.2
+      },
+      {
+        "block_start": 6560,
+        "n": 480,
+        "prevalence": 0.0917,
+        "cov_defect": 1.0,
+        "cov_ok": 0.6904,
+        "flag_rate": 0.3188,
+        "flag_precision": 0.1176,
+        "flag_recall": 0.4091,
+        "abstain_rate": 0.5625,
+        "day": 16.4
+      },
+      {
+        "block_start": 7040,
+        "n": 480,
+        "prevalence": 0.1271,
+        "cov_defect": 0.9836,
+        "cov_ok": 0.8138,
+        "flag_rate": 0.2021,
+        "flag_precision": 0.1959,
+        "flag_recall": 0.3115,
+        "abstain_rate": 0.6146,
+        "day": 17.6
+      },
+      {
+        "block_start": 7520,
+        "n": 480,
+        "prevalence": 0.1583,
+        "cov_defect": 0.9474,
+        "cov_ok": 0.8366,
+        "flag_rate": 0.1854,
+        "flag_precision": 0.2584,
+        "flag_recall": 0.3026,
+        "abstain_rate": 0.5646,
+        "day": 18.8
+      }
+    ],
+    "ELECTRICAL_FAULT": [
+      {
+        "block_start": 5600,
+        "n": 480,
+        "prevalence": 0.0771,
+        "cov_defect": 0.6486,
+        "cov_ok": 0.8442,
+        "flag_rate": 0.2125,
+        "flag_precision": 0.3235,
+        "flag_recall": 0.8919,
+        "abstain_rate": 0.0,
+        "day": 14.0
+      },
+      {
+        "block_start": 6080,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 0.1667,
+        "cov_ok": 0.9684,
+        "flag_rate": 0.0354,
+        "flag_precision": 0.1176,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.0,
+        "day": 15.2
+      },
+      {
+        "block_start": 6560,
+        "n": 480,
+        "prevalence": 0.0062,
+        "cov_defect": 0.6667,
+        "cov_ok": 0.9665,
+        "flag_rate": 0.0354,
+        "flag_precision": 0.0588,
+        "flag_recall": 0.3333,
+        "abstain_rate": 0.0292,
+        "day": 16.4
+      },
+      {
+        "block_start": 7040,
+        "n": 480,
+        "prevalence": 0.0125,
+        "cov_defect": 0.1667,
+        "cov_ok": 0.9873,
+        "flag_rate": 0.0125,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.0167,
+        "day": 17.6
+      },
+      {
+        "block_start": 7520,
+        "n": 480,
+        "prevalence": 0.0083,
+        "cov_defect": 0.5,
+        "cov_ok": 0.9328,
+        "flag_rate": 0.0667,
+        "flag_precision": 0.0,
+        "flag_recall": 0.0,
+        "abstain_rate": 0.5646,
+        "day": 18.8
+      }
+    ]
+  },
+  "backtrace": [
+    {
+      "defect_type": "LOOSE_FASTENER",
+      "gate": "B28",
+      "at_day": 19,
+      "true_fault": "F1",
+      "expected": [
+        "B17"
+      ],
+      "n_findings": 138,
+      "n_candidates_tested": 105,
+      "n_significant": 28,
+      "rank1_kind": "STATION_SIGNAL",
+      "rank1_label": "B17:torque_nm low",
+      "rank1_lift": 5.39,
+      "rank1_q": 6.02743916593051e-08,
+      "rank1_confidence": 0.976,
+      "rank1_detail": "torque_nm more than 2.0sd low of the commissioning baseline at B17",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "B17:torque_nm low",
+          "detail": "torque_nm more than 2.0sd low of the commissioning baseline at B17",
+          "station": "B17",
+          "zone": "FINAL",
+          "n_exposed": 901,
+          "n_exp_defective": 130,
+          "rate_exposed": 0.1443,
+          "rate_unexposed": 0.0268,
+          "lift": 5.39,
+          "p": 5.740418253267152e-10,
+          "q": 6.02743916593051e-08,
+          "confidence": 0.976
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w4",
+          "detail": "elevated rate across 26 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 199,
+          "n_exp_defective": 35,
+          "rate_exposed": 0.1759,
+          "rate_unexposed": 0.1029,
+          "lift": 1.61,
+          "p": 0.003371898202571388,
+          "q": 0.04795746000696638,
+          "confidence": 0.292
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:FINAL-OP2",
+          "detail": "worked by FINAL-OP2 in FINAL",
+          "station": "",
+          "zone": "FINAL",
+          "n_exposed": 533,
+          "n_exp_defective": 76,
+          "rate_exposed": 0.1426,
+          "rate_unexposed": 0.093,
+          "lift": 1.53,
+          "p": 0.004952548225025736,
+          "q": 0.04795746000696638,
+          "confidence": 0.248
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "B17:torque_nm low",
+        "n_exposed": 1123,
+        "n_still_in_line": 20,
+        "n_already_shipped": 901,
+        "n_not_yet_started": 202,
+        "vins_sample_shipped": [
+          "VIN106534",
+          "VIN106542",
+          "VIN106543",
+          "VIN106545",
+          "VIN106547",
+          "VIN106548",
+          "VIN106549",
+          "VIN106550",
+          "VIN106552",
+          "VIN106553",
+          "VIN106555",
+          "VIN106558",
+          "VIN106563",
+          "VIN106564",
+          "VIN106568",
+          "VIN106569",
+          "VIN106571",
+          "VIN106573",
+          "VIN106574",
+          "VIN106576",
+          "VIN106578",
+          "VIN106581",
+          "VIN106582",
+          "VIN106583",
+          "VIN106584"
+        ]
+      },
+      "containment_sample_vins": [
+        "VIN107733",
+        "VIN107734",
+        "VIN107735",
+        "VIN107736",
+        "VIN107739",
+        "VIN107740",
+        "VIN107741",
+        "VIN107742",
+        "VIN107744",
+        "VIN107746",
+        "VIN107747",
+        "VIN107748"
+      ]
+    },
+    {
+      "defect_type": "FIT_MISALIGN",
+      "gate": "B28",
+      "at_day": 19,
+      "true_fault": "F6",
+      "expected": [
+        "FINAL-OP2"
+      ],
+      "n_findings": 169,
+      "n_candidates_tested": 113,
+      "n_significant": 91,
+      "rank1_kind": "OPERATOR",
+      "rank1_label": "op:FINAL-OP2",
+      "rank1_lift": 13.85,
+      "rank1_q": 2.463351332584649e-42,
+      "rank1_confidence": 1.0,
+      "rank1_detail": "worked by FINAL-OP2 in FINAL",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "OPERATOR",
+          "label": "op:FINAL-OP2",
+          "detail": "worked by FINAL-OP2 in FINAL",
+          "station": "",
+          "zone": "FINAL",
+          "n_exposed": 533,
+          "n_exp_defective": 155,
+          "rate_exposed": 0.2908,
+          "rate_unexposed": 0.021,
+          "lift": 13.85,
+          "p": 2.1799569314908397e-44,
+          "q": 2.463351332584649e-42,
+          "confidence": 1.0
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:BODY-OP1",
+          "detail": "worked by BODY-OP1 in BODY",
+          "station": "",
+          "zone": "BODY",
+          "n_exposed": 400,
+          "n_exp_defective": 120,
+          "rate_exposed": 0.3,
+          "rate_unexposed": 0.0612,
+          "lift": 4.9,
+          "p": 1.94035075273876e-27,
+          "q": 7.308654501982663e-26,
+          "confidence": 0.96
+        },
+        {
+          "kind": "SHIFT",
+          "label": "shift:18-A",
+          "detail": "built on day-shift 18-A",
+          "station": "",
+          "zone": "",
+          "n_exposed": 400,
+          "n_exp_defective": 120,
+          "rate_exposed": 0.3,
+          "rate_unexposed": 0.0612,
+          "lift": 4.9,
+          "p": 1.94035075273876e-27,
+          "q": 7.308654501982663e-26,
+          "confidence": 0.96
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-425",
+          "detail": "consumed supplier lot LOT-425",
+          "station": "",
+          "zone": "",
+          "n_exposed": 233,
+          "n_exp_defective": 71,
+          "rate_exposed": 0.3047,
+          "rate_unexposed": 0.1013,
+          "lift": 3.01,
+          "p": 1.3327501500165238e-13,
+          "q": 3.012015339037344e-12,
+          "confidence": 0.763
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-424",
+          "detail": "consumed supplier lot LOT-424",
+          "station": "",
+          "zone": "",
+          "n_exposed": 300,
+          "n_exp_defective": 84,
+          "rate_exposed": 0.28,
+          "rate_unexposed": 0.0944,
+          "lift": 2.96,
+          "p": 4.200941691349721e-14,
+          "q": 1.1867660278062962e-12,
+          "confidence": 0.754
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w4",
+          "detail": "elevated rate across 28 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 200,
+          "n_exp_defective": 60,
+          "rate_exposed": 0.3,
+          "rate_unexposed": 0.109,
+          "lift": 2.61,
+          "p": 6.609837203996523e-11,
+          "q": 1.0670165772165817e-09,
+          "confidence": 0.634
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "op:FINAL-OP2",
+        "n_exposed": 800,
+        "n_still_in_line": 25,
+        "n_already_shipped": 533,
+        "n_not_yet_started": 242,
+        "vins_sample_shipped": [
+          "VIN107200",
+          "VIN107201",
+          "VIN107202",
+          "VIN107203",
+          "VIN107204",
+          "VIN107205",
+          "VIN107206",
+          "VIN107207",
+          "VIN107208",
+          "VIN107209",
+          "VIN107210",
+          "VIN107211",
+          "VIN107212",
+          "VIN107213",
+          "VIN107214",
+          "VIN107215",
+          "VIN107216",
+          "VIN107217",
+          "VIN107218",
+          "VIN107219",
+          "VIN107220",
+          "VIN107221",
+          "VIN107222",
+          "VIN107223",
+          "VIN107224"
+        ]
+      },
+      "containment_sample_vins": [
+        "VIN107733",
+        "VIN107734",
+        "VIN107735",
+        "VIN107736",
+        "VIN107737",
+        "VIN107738",
+        "VIN107739",
+        "VIN107740",
+        "VIN107741",
+        "VIN107742",
+        "VIN107743",
+        "VIN107744"
+      ]
+    },
+    {
+      "defect_type": "ELECTRICAL_FAULT",
+      "gate": "B28",
+      "at_day": 15,
+      "true_fault": "F3",
+      "expected": [
+        "LOT-418",
+        "B20:continuity_ohm"
+      ],
+      "n_findings": 101,
+      "n_candidates_tested": 76,
+      "n_significant": 62,
+      "rank1_kind": "STATION_SIGNAL",
+      "rank1_label": "B20:continuity_ohm high",
+      "rank1_lift": 28.56,
+      "rank1_q": 6.486068236786567e-48,
+      "rank1_confidence": 1.0,
+      "rank1_detail": "continuity_ohm more than 2.0sd high of the commissioning baseline at B20",
+      "correct": true,
+      "hypotheses": [
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "B20:continuity_ohm high",
+          "detail": "continuity_ohm more than 2.0sd high of the commissioning baseline at B20",
+          "station": "B20",
+          "zone": "FINAL",
+          "n_exposed": 290,
+          "n_exp_defective": 91,
+          "rate_exposed": 0.3138,
+          "rate_unexposed": 0.011,
+          "lift": 28.56,
+          "p": 8.534300311561273e-50,
+          "q": 6.486068236786567e-48,
+          "confidence": 1.0
+        },
+        {
+          "kind": "LOT",
+          "label": "lot:LOT-418",
+          "detail": "consumed supplier lot LOT-418",
+          "station": "",
+          "zone": "",
+          "n_exposed": 300,
+          "n_exp_defective": 91,
+          "rate_exposed": 0.3033,
+          "rate_unexposed": 0.0111,
+          "lift": 27.3,
+          "p": 3.03712838412001e-48,
+          "q": 1.1541087859656038e-46,
+          "confidence": 1.0
+        },
+        {
+          "kind": "STATION_SIGNAL",
+          "label": "B20:insertion_force_n high",
+          "detail": "insertion_force_n more than 2.0sd high of the commissioning baseline at B20",
+          "station": "B20",
+          "zone": "FINAL",
+          "n_exposed": 149,
+          "n_exp_defective": 39,
+          "rate_exposed": 0.2617,
+          "rate_unexposed": 0.059,
+          "lift": 4.44,
+          "p": 1.1318738636955827e-12,
+          "q": 2.150560341021607e-12,
+          "confidence": 0.938
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w3",
+          "detail": "elevated rate across 28 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 200,
+          "n_exp_defective": 52,
+          "rate_exposed": 0.26,
+          "rate_unexposed": 0.049,
+          "lift": 4.85,
+          "p": 1.5999735538021543e-17,
+          "q": 1.3016556601819622e-16,
+          "confidence": 0.876
+        },
+        {
+          "kind": "TIME_WINDOW",
+          "label": "window:w2",
+          "detail": "elevated rate across 28 stations in the same sub-window. Points at a line-wide or time-based cause (material, shift, utility) rather than one station.",
+          "station": "",
+          "zone": "",
+          "n_exposed": 198,
+          "n_exp_defective": 47,
+          "rate_exposed": 0.2374,
+          "rate_unexposed": 0.0539,
+          "lift": 3.95,
+          "p": 8.772395306112875e-14,
+          "q": 2.381078725944923e-13,
+          "confidence": 0.842
+        },
+        {
+          "kind": "OPERATOR",
+          "label": "op:BODY-OP2",
+          "detail": "worked by BODY-OP2 in BODY",
+          "station": "",
+          "zone": "BODY",
+          "n_exposed": 400,
+          "n_exp_defective": 61,
+          "rate_exposed": 0.1525,
+          "rate_unexposed": 0.05,
+          "lift": 3.05,
+          "p": 5.108101214869557e-09,
+          "q": 6.261543424678811e-09,
+          "confidence": 0.772
+        }
+      ],
+      "containment": {
+        "status": "ok",
+        "hypothesis": "B20:continuity_ohm high",
+        "n_exposed": 302,
+        "n_still_in_line": 0,
+        "n_already_shipped": 290,
+        "n_not_yet_started": 12,
+        "vins_sample_shipped": [
+          "VIN104961",
+          "VIN105051",
+          "VIN105068",
+          "VIN105093",
+          "VIN105109",
+          "VIN105183",
+          "VIN105272",
+          "VIN105283",
+          "VIN105357",
+          "VIN105393",
+          "VIN105401",
+          "VIN105402",
+          "VIN105404",
+          "VIN105405",
+          "VIN105406",
+          "VIN105407",
+          "VIN105408",
+          "VIN105409",
+          "VIN105410",
+          "VIN105411",
+          "VIN105412",
+          "VIN105413",
+          "VIN105414",
+          "VIN105415",
+          "VIN105416"
+        ]
+      },
+      "containment_sample_vins": []
+    }
+  ],
+  "backtrace_accuracy": 1.0,
+  "retrofit": {
+    "status": "skipped (--fast)"
+  },
+  "ledger": {
+    "scorecard": [
+      {
+        "kind": "DEFECT_RISK",
+        "issued": 10,
+        "surfaced": 10,
+        "suppressed_by_budget": 0,
+        "judged": 10,
+        "precision": 0.8,
+        "mean_confidence": 0.3892,
+        "impact_flagged_inr": 1257000.0
+      },
+      {
+        "kind": "BOTTLENECK",
+        "issued": 7,
+        "surfaced": 7,
+        "suppressed_by_budget": 0,
+        "judged": 7,
+        "precision": 0.8571,
+        "mean_confidence": 0.5677,
+        "impact_flagged_inr": 280000.0
+      },
+      {
+        "kind": "ROOT_CAUSE",
+        "issued": 3,
+        "surfaced": 3,
+        "suppressed_by_budget": 0,
+        "judged": 3,
+        "precision": 1.0,
+        "mean_confidence": 0.992,
+        "impact_flagged_inr": 66990.0
+      },
+      {
+        "kind": "CONTAINMENT",
+        "issued": 2,
+        "surfaced": 2,
+        "suppressed_by_budget": 0,
+        "judged": 2,
+        "precision": 1.0,
+        "mean_confidence": 0.988,
+        "impact_flagged_inr": 135756.0
+      }
+    ],
+    "calibration": [
+      {
+        "bin": "(-0.001, 0.2]",
+        "n": 3,
+        "mean_confidence": 0.0588235294117647,
+        "observed_precision": 0.3333333333333333,
+        "gap": 0.275
+      },
+      {
+        "bin": "(0.2, 0.4]",
+        "n": 4,
+        "mean_confidence": 0.31739915966386556,
+        "observed_precision": 1.0,
+        "gap": 0.683
+      },
+      {
+        "bin": "(0.4, 0.6]",
+        "n": 4,
+        "mean_confidence": 0.5029797971400066,
+        "observed_precision": 0.75,
+        "gap": 0.247
+      },
+      {
+        "bin": "(0.6, 0.8]",
+        "n": 5,
+        "mean_confidence": 0.6916561797752809,
+        "observed_precision": 1.0,
+        "gap": 0.308
+      },
+      {
+        "bin": "(0.8, 1.0]",
+        "n": 6,
+        "mean_confidence": 0.9836666666666667,
+        "observed_precision": 1.0,
+        "gap": 0.016
+      }
+    ],
+    "human_feedback": {
+      "n_adjudicated": 3,
+      "confirmed": 3,
+      "rejected": 0,
+      "unsure": 0,
+      "confirm_rate": 1.0
+    },
+    "n_alerts": 22,
+    "n_surfaced": 22,
+    "alerts_per_shift_cap": 5,
+    "sample": [
+      {
+        "id": "A00013",
+        "kind": "DEFECT_RISK",
+        "day": 14.0,
+        "target": "ELECTRICAL_FAULT",
+        "message": "102 units flagged for ELECTRICAL_FAULT at B28",
+        "confidence": 0.95,
+        "impact_inr": 331848,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00021",
+        "kind": "CONTAINMENT",
+        "day": 19.0,
+        "target": "op:FINAL-OP2",
+        "message": "25 units still in the line share this exposure",
+        "confidence": 1.0,
+        "impact_inr": 75420,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00019",
+        "kind": "CONTAINMENT",
+        "day": 19.0,
+        "target": "B17:torque_nm low",
+        "message": "20 units still in the line share this exposure",
+        "confidence": 0.976,
+        "impact_inr": 60336,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00020",
+        "kind": "ROOT_CAUSE",
+        "day": 19.0,
+        "target": "op:FINAL-OP2",
+        "message": "FIT_MISALIGN traced to op:FINAL-OP2 (lift 13.85)",
+        "confidence": 1.0,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00022",
+        "kind": "ROOT_CAUSE",
+        "day": 15.0,
+        "target": "B20:continuity_ohm high",
+        "message": "ELECTRICAL_FAULT traced to B20:continuity_ohm high (lift 28.56)",
+        "confidence": 1.0,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00018",
+        "kind": "ROOT_CAUSE",
+        "day": 19.0,
+        "target": "B17:torque_nm low",
+        "message": "LOOSE_FASTENER traced to B17:torque_nm low (lift 5.39)",
+        "confidence": 0.976,
+        "impact_inr": 22330,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00012",
+        "kind": "DEFECT_RISK",
+        "day": 18.8,
+        "target": "LOOSE_FASTENER",
+        "message": "89 units flagged for LOOSE_FASTENER at B28",
+        "confidence": 0.775,
+        "impact_inr": 231288,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00003",
+        "kind": "BOTTLENECK",
+        "day": 7.27,
+        "target": "B14",
+        "message": "B14 forecast to constrain the next shift",
+        "confidence": 0.754,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00011",
+        "kind": "DEFECT_RISK",
+        "day": 17.6,
+        "target": "LOOSE_FASTENER",
+        "message": "97 units flagged for LOOSE_FASTENER at B28",
+        "confidence": 0.588,
+        "impact_inr": 191064,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00007",
+        "kind": "BOTTLENECK",
+        "day": 17.13,
+        "target": "B14",
+        "message": "B14 forecast to constrain the next shift",
+        "confidence": 0.67,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00006",
+        "kind": "BOTTLENECK",
+        "day": 15.0,
+        "target": "B14",
+        "message": "B14 forecast to constrain the next shift",
+        "confidence": 0.633,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00004",
+        "kind": "BOTTLENECK",
+        "day": 10.07,
+        "target": "B14",
+        "message": "B14 forecast to constrain the next shift",
+        "confidence": 0.626,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00005",
+        "kind": "BOTTLENECK",
+        "day": 12.2,
+        "target": "B14",
+        "message": "B14 forecast to constrain the next shift",
+        "confidence": 0.54,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "correct"
+      },
+      {
+        "id": "A00001",
+        "kind": "BOTTLENECK",
+        "day": 3.0,
+        "target": "B20",
+        "message": "B20 forecast to constrain the next shift",
+        "confidence": 0.473,
+        "impact_inr": 40000,
+        "surfaced": true,
+        "outcome": "incorrect"
+      }
+    ]
+  },
+  "economics": {
+    "scenarios": {
+      "conservative": {
+        "throughput_inr": 0.0,
+        "quality_inr": 10968481.44,
+        "rca_inr": 580580.0,
+        "total_inr": 11549061.44
+      },
+      "base": {
+        "throughput_inr": 0.0,
+        "quality_inr": 36561604.800000004,
+        "rca_inr": 580580.0,
+        "total_inr": 37142184.800000004
+      },
+      "optimistic": {
+        "throughput_inr": 0.0,
+        "quality_inr": 51186246.72,
+        "rca_inr": 580580.0,
+        "total_inr": 51766826.72
+      }
+    },
+    "assumptions": {
+      "contribution_margin_per_unit_inr": 62000,
+      "rework_cost_per_defect_inr": 4800,
+      "scrap_cost_per_defect_inr": 21000,
+      "warranty_cost_per_escape_inr": 34000,
+      "unplanned_downtime_cost_per_min_inr": 9400,
+      "engineer_hours_per_rca": 22,
+      "engineer_cost_per_hour_inr": 1450,
+      "annual_units": 100000,
+      "working_days": 250,
+      "bottleneck_gap_s": 0.0,
+      "gap_recovered_fraction": 0.6,
+      "defect_detection_rate": 0.1855,
+      "mean_flag_precision": 0.1305,
+      "mean_flag_recall": 0.392,
+      "fraction_of_flags_acted_on": 0.5,
+      "rca_events_per_year": 26
+    },
+    "throughput_annual_inr": 0.0,
+    "quality_annual_inr": 36561604.800000004,
+    "rca_annual_inr": 580580.0,
+    "total_annual_inr": 37142184.800000004,
+    "defects_avoided_per_year": 3635.8
+  },
+  "timing_ms": {
+    "simulate line": 476.3,
+    "inject scanner faults": 22.0,
+    "detect + repair scan faults": 37.2,
+    "reconstruct machine states": 26.3,
+    "censored MLE, 13 dark stations": 9.4,
+    "SPC charts, all stations": 20.9,
+    "detect bottleneck, 2-day blocks": 236.6,
+    "forecast eval, 7 triggers": 1919.9,
+    "build features (3 causal cutoffs)": 28.0,
+    "fit 6 conformal models": 479.5,
+    "3 root-cause traces": 78.3
+  },
+  "timing_total_s": 3.3
+}
