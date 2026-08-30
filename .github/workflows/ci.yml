@@ -1,0 +1,43 @@
+name: validation-harness
+
+# The scoring harness exits non-zero if any of ten headline metrics leaves its
+# pre-stated envelope, so running it on every push is a real regression test,
+# not a decorative badge.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Smoke test both line configurations
+        run: |
+          python run_demo.py --fast
+          python run_demo.py --line beta --fast
+
+      - name: Scoring harness (fails on metric regression)
+        run: python eval/run_eval.py --seeds 2
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: loom-outputs
+          path: outputs/
