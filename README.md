@@ -4,7 +4,7 @@
 
 Accenture Innovation Challenge 2026 — Round 2, Problem Track 4: `DigitalTwin.ai`
 
-[![validation-harness](https://github.com/OWNER/loom-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/loom-twin/actions/workflows/ci.yml)
+[![validation-harness](https://github.com/kabhinav24/loom-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/loom-twin/actions/workflows/ci.yml)
 
 > **Demo video:** _add link here before pushing_
 > Replace `OWNER` in the badge URL above with your GitHub username or org.
