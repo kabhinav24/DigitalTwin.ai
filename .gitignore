@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+.ipynb_checkpoints/
+# outputs are committed so reviewers see results without running anything
+# outputs/*.json
+# outputs/*.html
+!outputs/.gitkeep
